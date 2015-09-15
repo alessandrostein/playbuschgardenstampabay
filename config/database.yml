@@ -24,6 +24,8 @@ default: &default
 development:
   <<: *default
   database: playbuschgardenstampabay_development
+  username: postgres
+  password: system
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
