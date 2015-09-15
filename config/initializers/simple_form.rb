@@ -141,6 +141,7 @@ SimpleForm.setup do |config|
 
   # Default priority for country inputs.
   # config.country_priority = nil
+  config.input_mappings = { /country/ => :string }
 
   # When false, do not use translations for labels.
   # config.translate_labels = true

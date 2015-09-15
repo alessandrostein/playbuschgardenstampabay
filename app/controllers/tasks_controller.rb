@@ -10,4 +10,10 @@ class TasksController < InheritedResources::Base
     create!{ tasks_path }
   end
 
+  protected
+
+  def begin_of_association_chain
+    current_user
+  end
+
 end
