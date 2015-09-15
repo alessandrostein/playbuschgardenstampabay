@@ -7,9 +7,7 @@ class TasksController < InheritedResources::Base
   end
 
   def create
-    byebug
-    @task = Task.new params[:task]
-    @task.save
+    create!{ tasks_path }
   end
 
 end

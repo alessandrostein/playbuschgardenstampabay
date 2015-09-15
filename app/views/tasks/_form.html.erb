@@ -1,5 +1,9 @@
 <%= simple_form_for @task do |f| %>
   <%= f.input :description %>
+  <%= f.input :expires_on, as: :date %>
   <%= f.input :address %>
+  <%= f.input :city %>
+  <%= f.input :province %>
+  <%= f.input :country %>
   <%= f.button :submit %>
 <% end %>
