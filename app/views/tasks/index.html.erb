@@ -1,4 +1,33 @@
-Listagem de tarefas
-<% @tasks.each do |task| %>
-  <%= task %>
-<% end %>
+<h1>Listagem de tarefas</h1>
+
+<div class="content-actions">
+  <%= link_to 'Adicionar', new_task_path(), class: "btn btn-success" %>
+</div>
+
+<table class="table table-striped">
+  <tr>
+    <td>Descrição</td>
+    <td>Expira em</td>
+    <td>Endereço</td>
+    <td>Cidade</td>
+    <td>Estado</td>
+    <td>País</td>
+    <td>Criado em</td>
+    <td></td>
+  </tr>
+
+  <% @tasks.each do |task| %>
+    <tr>
+      <td><%= task.description %></td>
+      <td><%= task.expires_on %></td>
+      <td><%= task.address %></td>
+      <td><%= task.city %></td>
+      <td><%= task.province %></td>
+      <td><%= task.country %></td>
+      <td><%= task.created_at %></td>
+      <td>
+        <%= link_to 'Editar', edit_task_path(task), class: "btn btn-primary" %>
+        <%= link_to 'Excluir',  task,  method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-danger" %>
+      </td>
+  <% end %>
+</table>
