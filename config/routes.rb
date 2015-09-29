@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  root to: "home#index"
+  root to: "dashboard#index"
+
+  match '/dashboard' => 'dashboard#index', :via => [:get]
 
   resources :tasks
   # The priority is based upon order of creation: first created -> highest priority.

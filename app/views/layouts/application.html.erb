@@ -7,10 +7,38 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+  <div class="header-user">
+    <table class="table">
+      <tr>
+        <td style="width: 85%;">
+          <p>Usuário: <%= current_user.email %></p>
+          <p>Último acesso: <%= current_user.last_sign_in_at %></p>
+        </td>
+        <td style="width: 15%;">
+          <p class="avatar">
+            <%= image_tag "avatar.png" %>
+          </p>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="menu">
+    <ul class="list-unstyled">
+      <li><%= link_to 'Dashboard', dashboard_path() %></li>
+      <li>Timeline</li>
+      <li><%= link_to "Tarefas", tasks_path() %></li>
+    </ul>
+  </div>
+
+
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
-  <%= yield %>
+  <div class="content">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

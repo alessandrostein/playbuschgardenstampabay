@@ -10,7 +10,43 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require font-awesome
+ *= require bootstrap
+ *= require dashboard
  *= require tasks
  *= require_tree .
  *= require_self
  */
+
+ ul li {
+  list-style: none;
+ }
+
+ .content {
+  margin: 25px 25px 25px 25px;
+ }
+
+.header-user {
+  margin: 15px 15px 15px 15px;
+  width: 100%;
+  height: 100px;
+}
+
+.header-user .avatar {
+  text-align: center;
+  width: 100px;
+  height: 100px;
+}
+
+.menu {
+  background-color: #F5F5F5;
+  width: 100%;
+  height: 50px;
+}
+
+.menu ul {
+  padding-top: 15px;
+}
+.menu ul li {
+  display: inline-block;
+}
