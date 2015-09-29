@@ -26,7 +26,7 @@ gem 'devise'
 gem 'inherited_resources'
 gem 'simple_form'
 gem 'protected_attributes'
-gem "twitter-bootstrap-rails"
+gem 'merit'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
