@@ -14,10 +14,15 @@
         <td style="width: 85%;">
           <p>Usuário: <%= current_user.email %></p>
           <p>Último acesso: <%= current_user.last_sign_in_at %></p>
+          
+          <%= link_to(destroy_user_session_path, { method: 'delete' }) do %>
+            <i class="fa fa-sign-out"></i> Sair
+          <% end %>
+          
         </td>
         <td style="width: 15%;">
           <p class="avatar">
-            <%= image_tag "avatar.png" %>
+            <%= image_tag "avatar.png", class: "img-responsive" %>
           </p>
         </td>
       </tr>

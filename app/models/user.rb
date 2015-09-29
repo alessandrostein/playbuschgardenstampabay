@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  attr_accessible :email, :password, :password_confirmation
+
   has_merit
 
   # Include default devise modules. Others available are:

@@ -22,5 +22,13 @@ module Playbuschgardenstampabay
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.to_prepare do
+      Devise::SessionsController.layout "site"
+      Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "site" }
+      Devise::ConfirmationsController.layout "site"
+      Devise::UnlocksController.layout "site"
+      Devise::PasswordsController.layout "site"
+    end
   end
 end
