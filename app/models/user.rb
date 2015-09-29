@@ -9,4 +9,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :tasks
+  has_many :posts
+  has_many :comments
 end

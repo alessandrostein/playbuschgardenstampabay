@@ -1,0 +1,10 @@
+.timeline {
+  margin-top: 15px;
+  border: 2px solid #666;
+  border-radius: 9px;
+  padding: 15px 15px 15px 15px;
+}
+
+.timeline .author {
+  color: #4078C0;
+}

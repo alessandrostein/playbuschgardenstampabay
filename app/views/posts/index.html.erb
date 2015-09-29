@@ -1,0 +1,16 @@
+<%= simple_form_for @post do |f| %>
+  <p>Compartilhe como você se sente hoje</p>
+  <div class="form-group">
+    <textarea class="form-control" rows="3" name="post[text]"></textarea>
+  </div>  
+  <button type="submit" class="btn btn-default">Publicar</button>
+<% end %>
+
+<% Post.all.order(created_at: :desc).limit(10).each do |post| %>
+  <div class="timeline">
+    <p class="author">Publicado por <%= post.user.email %><span class="pull-right">Data: <%= post.updated_at %></span><p>
+    <p class="message"><%= post.text %></p>
+    <%= link_to 'Comentar', '#' %>
+    <%= link_to 'Excluir', post, method: :delete, data: { confirm: 'Você tem certeza?' } if post.is_own?(current_user.id) %>
+  </div>
+<% end %>
