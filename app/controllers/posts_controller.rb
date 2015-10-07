@@ -10,10 +10,20 @@ class PostsController < InheritedResources::Base
     create!{ posts_path }
   end
 
+  def like
+    @post = load_model
+    current_user.likes.create!(post_id: @post.id)
+    render :index
+  end
+
   protected
 
   def begin_of_association_chain
     current_user
+  end
+
+  def load_model
+    @post = Post.find(params[:id])
   end
 
 end

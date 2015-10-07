@@ -26,6 +26,7 @@
       <td><%= task.country %></td>
       <td><%= task.created_at %></td>
       <td>
+        <%= link_to 'Compartilhar', share_task_path(task), class: "btn btn-primary" %>
         <%= link_to 'Editar', edit_task_path(task), class: "btn btn-primary" %>
         <%= link_to 'Excluir',  task,  method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-danger" %>
       </td>

@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150929013640) do
+ActiveRecord::Schema.define(version: 20151007031621) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,6 +26,27 @@ ActiveRecord::Schema.define(version: 20150929013640) do
   add_index "badges_sashes", ["badge_id", "sash_id"], name: "index_badges_sashes_on_badge_id_and_sash_id", using: :btree
   add_index "badges_sashes", ["badge_id"], name: "index_badges_sashes_on_badge_id", using: :btree
   add_index "badges_sashes", ["sash_id"], name: "index_badges_sashes_on_sash_id", using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+    t.integer  "post_id"
+  end
+
+  add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "likes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "post_id"
+    t.integer  "user_id"
+  end
+
+  add_index "likes", ["post_id"], name: "index_likes_on_post_id", using: :btree
+  add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
 
   create_table "merit_actions", force: :cascade do |t|
     t.integer  "user_id"
@@ -59,30 +81,21 @@ ActiveRecord::Schema.define(version: 20150929013640) do
     t.string  "category", default: "default"
   end
 
-  create_table "sashes", force: :cascade do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "posts", force: :cascade do |t|
     t.string   "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.integer  "task_id"
   end
 
+  add_index "posts", ["task_id"], name: "index_posts_on_task_id", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
-    create_table "comments", force: :cascade do |t|
-    t.string   "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "user_id"
-    t.integer  "post_id"
+  create_table "sashes", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
-
-  add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "tasks", force: :cascade do |t|
     t.string   "description", default: "", null: false
@@ -113,6 +126,7 @@ ActiveRecord::Schema.define(version: 20150929013640) do
     t.datetime "updated_at",                          null: false
     t.integer  "sash_id"
     t.integer  "level",                  default: 0
+    t.string   "name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -120,6 +134,9 @@ ActiveRecord::Schema.define(version: 20150929013640) do
 
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "likes", "posts"
+  add_foreign_key "likes", "users"
+  add_foreign_key "posts", "tasks"
   add_foreign_key "posts", "users"
   add_foreign_key "tasks", "users"
 end

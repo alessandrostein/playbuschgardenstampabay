@@ -6,8 +6,13 @@ Rails.application.routes.draw do
 
   match '/dashboard' => 'dashboard#index', :via => [:get]
 
-  resources :tasks
-  resources :posts
+  resources :tasks do
+    get :share, :on => :member
+  end
+
+  resources :posts do
+    get :like, :on => :member
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
