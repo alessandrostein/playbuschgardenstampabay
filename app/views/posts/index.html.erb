@@ -7,7 +7,7 @@
       <%= post.likes.count %> curtidas
     <% end %>
     <% unless post.liked?(current_user.id) %>
-      <%= link_to 'Descurtir', like_post_path(post), class: "btn btn-primary" %>
+      <%= link_to 'Descurtir', unlike_post_path(post), class: "btn btn-primary" %>
     <% else %>
       <%= link_to 'Curtir', like_post_path(post), class: "btn btn-primary" %>
     <% end %>
