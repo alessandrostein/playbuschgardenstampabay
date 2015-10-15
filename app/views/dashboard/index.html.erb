@@ -15,9 +15,9 @@
       <td>
         <div class="ranking">
           <ul>
-            <li>User 1 </li>
-            <li>Alessandro Stein</li>
-            <li>User 3</li>
+            <%= Merit::Score.top_scored.each do |score| %>
+              <li>Usuario: <%= score["user_id"]%> Pontos: <%= score["sum_points"] %></li>
+            <% end %>
           </ul>
         </div>
       </td>

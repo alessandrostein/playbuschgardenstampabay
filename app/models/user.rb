@@ -12,4 +12,10 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :comments
   has_many :likes
+
+  scope :top_10_in_points, -> { joins(:sashes) }
+
+    #:merit_score_points).select("users.*").
+    #group('merit_score_points.score_id, users.score_id').order("sum(merit_score_points.merit_score_points) DESC").limit(25) }
+
 end

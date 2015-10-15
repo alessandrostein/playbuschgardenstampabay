@@ -11,14 +11,18 @@
   <div class="header-user">
     <table class="table">
       <tr>
-        <td style="width: 85%;">
+        <td style="width: 50%;">
           <p>Usuário: <%= current_user.email %></p>
           <p>Último acesso: <%= current_user.last_sign_in_at %></p>
-          
           <%= link_to(destroy_user_session_path, { method: 'delete' }) do %>
             <i class="fa fa-sign-out"></i> Sair
           <% end %>
-          
+
+        </td>
+        <td style="width: 35%;">
+          <p>Posição no ranking: <%= current_user.level %></p>
+          <p>Total de pontos: <%= current_user.points %></p>
+          <p>Total de trófeus: <%= current_user.badges %></p>
         </td>
         <td style="width: 15%;">
           <p class="avatar">
