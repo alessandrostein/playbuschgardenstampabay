@@ -5,6 +5,10 @@
   </div>
 
   <div class="site-actions">
-    <a href="#" class="btn-get-started" data-toggle="modal" data-target="#sign-up">Começar agora!</a>
+    <% unless user_signed_in? %>
+      <a href="#" class="btn-get-started" data-toggle="modal" data-target="#sign-up">Começar agora!</a>
+    <% else %>
+      <%= link_to "Começar agora!", dashboard_path, class: "btn-get-started" %>
+    <% end %>
   </div>
 </div>
