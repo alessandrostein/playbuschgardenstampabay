@@ -17,7 +17,7 @@
  *= require_self
  */
 
-body {
+body.layout-home {
   background-image: url('background.jpg')
 }
 
