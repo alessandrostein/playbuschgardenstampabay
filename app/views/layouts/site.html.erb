@@ -10,7 +10,11 @@
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
+  <%= render "site/header" %>
+
   <%= yield %>
 
+  <%= render "site/footer" %>
+  <%= render "devise/registrations/new" %>
 </body>
 </html>

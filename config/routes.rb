@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  root to: "dashboard#index"
+  root to: "site#index"
 
   match '/dashboard' => 'dashboard#index', :via => [:get]
 
