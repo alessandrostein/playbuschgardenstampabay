@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151007031621) do
+ActiveRecord::Schema.define(version: 20151103022010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "actions", force: :cascade do |t|
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "task_id"
+    t.integer  "user_id"
+    t.integer  "status",     default: 0
+  end
+
+  add_index "actions", ["task_id"], name: "index_actions_on_task_id", using: :btree
+  add_index "actions", ["user_id"], name: "index_actions_on_user_id", using: :btree
 
   create_table "badges_sashes", force: :cascade do |t|
     t.integer  "badge_id"
@@ -132,6 +143,8 @@ ActiveRecord::Schema.define(version: 20151007031621) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "actions", "tasks"
+  add_foreign_key "actions", "users"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "posts"

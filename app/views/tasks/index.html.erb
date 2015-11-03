@@ -32,7 +32,7 @@
             <td><%= task.user.email %></td>
             <td style="text-align: center;">
               <%= link_to 'Ver detalhes', task_path(task), class: "btn-see-more" %>
-              <%= link_to 'Participar', task_path(task), class: "btn-ok" %>
+              <%= link_to 'Participar', '#', class: "btn-ok", :"data-task-id" => "#{task.id}" %>
               <%= link_to 'Compartilhar', share_task_path(task), class: "btn-share" %>
               <!-- <%= link_to 'Editar', edit_task_path(task), class: "btn btn-primary" %>
               <%= link_to 'Excluir',  task,  method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-danger" %> -->

@@ -14,6 +14,11 @@ Rails.application.routes.draw do
     get :like, :on => :member
     get :unlike, :on => :member
   end
+
+  match '/actions/:task_id/participate' => 'actions#participate', :via => [:post]
+  match '/actions/:action_id/confirmate' => 'actions#confirmate', :via => [:post]
+  match '/actions/:action_id/finalize' => 'actions#finalize', :via => [:post]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

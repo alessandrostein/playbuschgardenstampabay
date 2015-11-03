@@ -1,8 +1,40 @@
 <div class="row">
   <div class="col-sm-8">
-    <div class="task-open">
-
+    <div class="row">
+      <div class="task-open">
+        <% current_user.actions.where(status: 0).each do |action| %>
+          <p>Você tem uma ação pendente chamada <%= action.id %>
+            <%= link_to 'Confirmar', '#', class: "btn-confirmate", :"data-action-id" => "#{action.id}" %>
+          </p>
+        <% end %>
+      </div>
     </div>
+
+    <hr/>
+
+    <div class="row">
+      <div class="task-waiting">
+        <% current_user.actions.where(status: 1).each do |action| %>
+          <p>Você tem uma ação aguardando o aceite do criado. Sua ação é: <%= action.id %></p>
+
+        <% end %>
+
+      </div>
+    </div>
+
+    <hr/>
+
+    <div class="row">
+      <div class="task-need-acepted">
+        Tarefas que necessitam de sua aprovação        
+        <% Action.actions_requiring_approval(current_user.tasks.select(:id)).each do |action| %>
+          <p>Ação <%= action.id %>
+            <%= link_to 'Aceito', '#', class: "btn-finalize", :"data-action-id" => "#{action.id}" %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+
     <!-- <div class="dash">
       <div class="task-main">
         <div class="title">

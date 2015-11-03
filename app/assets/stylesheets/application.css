@@ -356,7 +356,7 @@ footer .row ul li {
   color: #FFF;
 }
 
-.btn-ok {
+.btn-ok, .btn-confirmate, .btn-finalize {
   background: #55B771 none repeat scroll 0% 0%;
   color: #FFF;
   border-radius: 4px;
