@@ -4,4 +4,11 @@ class DashboardController < InheritedResources::Base
 
   def index
   end
+
+  private
+
+  def actual_menu_context
+    :dashboard
+  end
+
 end

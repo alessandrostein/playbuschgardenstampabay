@@ -8,13 +8,13 @@
           </div>
         </li>
         <li class="menu">
-          <%= link_to 'Início', dashboard_path() %>
+          <%= link_to 'Início', dashboard_path(), class: "#{'active' if @menu_context == :dashboard}" %>
         </li>
         <li class="menu">
-          <%= link_to 'Timeline', posts_path() %>
+          <%= link_to 'Timeline', posts_path(), class: "#{'active' if @menu_context == :timeline}" %>
         </li>
         <li class="menu">
-          <%= link_to "Ações", tasks_path() %>
+          <%= link_to "Ações", tasks_path(), class: "#{'active' if @menu_context == :tasks}" %>
         </li>
       </ul>
     </div>

@@ -26,4 +26,10 @@ class TasksController < InheritedResources::Base
     @task = current_user.tasks.find(params[:id])
   end
 
+  private
+
+  def actual_menu_context
+    :tasks
+  end
+
 end

@@ -36,4 +36,10 @@ class PostsController < InheritedResources::Base
     @like = current_user.likes.where(post_id: params[:id]).last
   end
 
+  private
+
+  def actual_menu_context
+    :timeline
+  end
+
 end
