@@ -26,7 +26,12 @@ gem 'devise'
 gem 'inherited_resources'
 gem 'simple_form'
 gem 'protected_attributes'
-gem "twitter-bootstrap-rails"
+gem 'merit'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap'
+  gem 'rails-assets-font-awesome'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

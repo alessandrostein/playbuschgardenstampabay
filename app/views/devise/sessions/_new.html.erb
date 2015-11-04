@@ -1,0 +1,33 @@
+<div class="modal fade" id="sign-in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+
+          <h1>Bem vindo(a) novamente, informe seus dados para acesso</h1>
+
+          <div class="field">
+            <%= f.email_field :email, autocomplete: true, title: "Informe seu email", placeholder: "Digite seu e-mail" %>
+          </div>
+
+          <div class="field">
+            <%= f.password_field :password, autocomplete: "off", title: "Informe sua senha", placeholder: "Digite sua senha" %>
+          </div>
+
+          <div class="actions">
+            <%= f.submit "Pronto, entrar!" %>
+          </div>
+
+          <div class="has-account">
+            <p>Esqueceu a sua senha? <a href="#">Recuperar minha conta</a></p>
+            <p>Não possue uma conta? <a href="#">Criar uma conta</a></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

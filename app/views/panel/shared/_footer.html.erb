@@ -1,0 +1,46 @@
+<footer>
+  <div class="row">
+    <div class="badges">
+      <ul>
+        <li>
+          <p> Total de conquistas </p>
+        </li>
+        <li>
+          <div class="badges-user">
+            <p><%= current_user.badges.count %></p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="level">
+      <ul>
+        <li>
+          <p> Nível </p>
+        </li>
+        <li>
+          <div class="level-user">
+            <p><%= current_user.level %></p>
+          </div>
+        </li>
+      </li>
+    </div>
+
+    <div class="points">
+      <ul>
+        <li>
+          <p> Total de pontos </p>
+        </li>
+        <li>
+          <div class="points-user">
+            <p><%= current_user.points %></p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="progress-level">
+      <span class="green" style="width: 40%;"><span>Faltam 100 pontos</span></span>
+    </div>
+  </div>
+</footer>

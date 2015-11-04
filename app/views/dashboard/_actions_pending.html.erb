@@ -1,0 +1,41 @@
+<div class="box">
+  <div class="title">
+    <h1><i class="fa fa-heart"></i> Ações pendentes</h1>
+  </div>
+
+  <div class="row box-table">
+    <div class="col-sm-2">
+      <p>Situação</p>
+    </div>
+    <div class="col-sm-3">
+      <p>Ação</p>
+    </div>
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-3">
+      <p>Expira em</p>
+    </div>
+    <div class="col-sm-2">
+    </div>
+  </div>
+
+  <% current_user.actions.where(status: 0).each do |action| %>
+    <div class="row box-table">
+      <div class="col-sm-2">
+        <p><%= link_to 'Pendente', "#", class: "btn-share" %></p>
+      </div>
+      <div class="col-sm-3">
+        <p><%= action.task.description %></p>
+      </div>
+      <div class="col-sm-2">
+        <p><%= link_to 'Ver detalhes', task_path(action.task), class: "btn-see-more" %></p>
+      </div>
+      <div class="col-sm-3">
+        <p><%= distance_of_time_in_words(Date.today, action.task.try(:expires_on)) %></p>
+      </div>
+      <div class="col-sm-2">
+        <%= link_to 'Finalizar', '#', class: "btn-confirmate", :"data-action-id" => "#{action.id}" %>
+      </div>
+    </div>
+  <% end %>
+</div>

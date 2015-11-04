@@ -10,7 +10,387 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require font-awesome
+ *= require bootstrap
+ *= require dashboard
  *= require tasks
+ *= require posts
+ *= require progressbar
  *= require_tree .
  *= require_self
  */
+
+ body {
+   /*background-color: #F5F5F5;*/
+   /*background-color: #F2F0EA;*/
+   /*background-color: #55B771;*/
+   background-color: #7FCB94;
+ }
+
+ ul li {
+  list-style: none;
+ }
+
+.content {
+  height: 100%;
+  /*background-color: #FFF;*/
+  background-color: #FAF8F2;
+  margin: 0 50px 0px 50px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  /*padding: 25px 25px 25px 25px;*/
+ }
+
+.header-user {
+  margin: 15px 15px 15px 15px;
+  width: 100%;
+  height: 100px;
+}
+
+.avatar {
+  margin-right: 25px;
+  margin-top: 5px;
+  float: left;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+}
+
+.badges-user, .level-user, .points-user {
+  height: 43px;
+  width: 43px;
+  border-radius: 43px;
+  background-color: #161616;
+  overflow: hidden;
+}
+
+.badges-user p, .level-user p, .points-user p {
+  text-align: center;
+  margin-top: 10px;
+  color: #55B771;
+  font-family: "Open Sans",Arial,sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+header {
+  /*background-color: #F5F5F5;*/
+  /*background-color: #F2F0EA;*/
+  /*background-color: #55B771;*/
+  background-color: #7FCB94;
+  width: 100%;
+  height: 60px;
+}
+
+header .row {
+  width: 100%;
+  padding: 0 50px 0 50px !important;
+}
+
+header .row ul {
+  list-style: none;
+}
+
+header .row ul li {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+footer {
+  margin: 0 50px 50px 50px;
+  background: #2E2E2E none repeat scroll 0% 0%;
+  height: 70px;
+  color: #979797;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+footer .row{
+  width: 100%;
+}
+
+footer .row ul {
+	list-style: none;
+  text-align: center;
+}
+
+footer .row ul li {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+  margin-top: 15px;
+}
+
+.badges {
+  float: left;
+  width: 25%;
+}
+
+.points {
+  float: left;
+  width: 25%;
+}
+
+.level {
+  float: left;
+  width: 25%;
+}
+
+.progress-level {
+  float: left;
+  width: 25%;
+  margin-top: 25px;
+}
+
+.menu {
+  margin-right: 10px;
+}
+
+.menu a {
+  font-family: "Open Sans",Arial,sans-serif;
+  font-size: 16px;
+  color: #FFF;
+  text-decoration: none;
+  padding: 5px 15px;
+}
+
+.menu a:active, .menu a:hover, .menu .active {
+  background: #FAF8F2;
+  color: #979797;
+  padding-bottom: 25px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.menu-left {
+  float: left;
+  width: 78%;
+}
+
+.menu-right {
+  float: left;
+  width: 22%;
+}
+
+.menu-right ul li {
+  font-family: "Abel";
+  font-size: 14px;
+  color: #1D1D1D;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.last-wins {
+  padding: 15px;
+  /*background-color: #FBFBFB;*/
+  background-color: #F2F0EA;
+  border-top-right-radius: 7px;
+  margin-top: -5px;
+}
+
+.last-wins h1 {
+  font-family: "Abel";
+  font-size: 18px;
+  font-weight: 300;
+  text-align: center;
+  color: #979797;;
+}
+
+.last-wins .time {
+  margin-top: 5px;
+  color: rgb(100, 183, 254);
+  font-size: 12px;
+}
+
+.last-wins .description {
+  float: left;
+  color: #868480;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  margin-top: 3px;
+  padding-left: 5px;
+}
+
+.last-wins .circle {
+  float: left;
+  height: 30px;
+  width: 30px;
+  border-radius: 43px;
+  background-color: #F2F0EA;
+  border: 2px solid #FFF;
+  overflow: hidden;
+}
+
+.last-wins .circle p {
+  text-align: center;
+  margin-top: 3px;
+  color: #55B771;
+  font-family: "Open Sans",Arial,sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.last-wins .row {
+  padding-left: 55px;
+}
+
+.task-main {
+  background-color: #FBFBFB;
+  float: left;
+  width: 49%;
+  height: 150px;
+  border: 2px solid #F2F0EA;
+  border-radius: 7px;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.task {
+  float: left;
+  margin-top: 5px;
+  margin-right: 5px;
+  width: 25%;
+  height: 340px;
+  border: 2px solid #F2F0EA;
+  border-radius: 7px;
+}
+
+.circle-o {
+  margin: 0 auto;
+  float: left;
+  height: 130px;
+  width: 130px;
+  border-radius: 63px;
+  background-color: #F2F0EA;
+  border: 2px solid #FFF;
+  overflow: hidden;
+}
+
+.circle-o p {
+  text-align: center;
+  margin-top: 3px;
+  color: #55B771;
+  font-family: "Open Sans",Arial,sans-serif;
+  font-weight: bold;
+  font-size: 84px;
+}
+
+.chose-city, .list-task {
+  padding: 25px 25px 5px 25px;
+}
+
+.actions-task  {
+  padding: 15px 25px 15px 25px;
+}
+
+.tasks-grid {
+  border-radius: 2px;
+  background: #EBE9E4 none repeat scroll 0% 0%;
+  color: #666;
+  font-size: 16px;
+}
+
+.tasks-grid .content-task td {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: #FBFBFB;
+  font-size: 14px;
+}
+
+.chose-city-select {
+  width: auto !important;
+  float: left;
+  background: #EBE9E4 none repeat scroll 0% 0%;
+  color: #666;
+  border-radius: 2px;
+  height: 40px;
+  line-height: 40px;
+  box-shadow: none;
+  border: medium none;
+  padding: 0px 34px 0px 13px;
+  font-size: 16px;
+  text-shadow: none !important;
+  margin: 0px;
+}
+
+.btn-see-more {
+  background: #EBE9E4 none repeat scroll 0% 0%;
+  color: #666;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.btn-see-more:hover, .btn-add-new:hover {
+  background: #F3F1EB none repeat scroll 0% 0%;
+  text-decoration: none;
+  color: #666;
+}
+
+.btn-ok:hover {
+  background: #56BF74 none repeat scroll 0% 0%;
+  text-decoration: none;
+  color: #FFF;
+}
+
+.btn-share:hover {
+  background: #3986C8 none repeat scroll 0% 0%;
+  text-decoration: none;
+  color: #FFF;
+}
+
+.btn-ok, .btn-confirmate, .btn-finalize {
+  background: #55B771 none repeat scroll 0% 0%;
+  color: #FFF;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.btn-share {
+  background: #337AB7 none repeat scroll 0% 0%;
+  color: #FFF;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 12px;
+}
+
+.btn-add-new {
+  background: #EBE9E4 none repeat scroll 0% 0%;
+  color: #666;
+  border-radius: 4px;
+  padding: 10px 15px;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.dash {
+  padding: 30px;
+}
+
+.box {
+  width: 100%;
+  background-color: #FFF;
+}
+
+.box .title h1 {
+  color: #979797;
+  font-size: 20px;
+  padding: 15px;
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+}
+
+.box-table {
+  padding: 5px 15px 5px 15px;
+}
+
+.box-table p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+}
+
+.avatar-box-waiting {
+  width: 25px;
+  height: 25px;
+}

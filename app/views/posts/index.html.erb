@@ -1,0 +1,16 @@
+<% Post.all.order(created_at: :desc).limit(10).each do |post| %>
+  <div class="timeline">
+    <p class="author"><%= post.user.name %> compartilhou uma <%= link_to 'oportunidade', tasks_path() %><span class="pull-right">Data: <%= post.updated_at %></span><p>
+      <pre><%= post.task.description %></pre>
+    <p class="message"><%= post.text %></p>
+    <% unless post.likes.blank? %>
+      <%= post.likes.count %> curtidas
+    <% end %>
+    <% unless post.liked?(current_user.id) %>
+      <%= link_to 'Descurtir', unlike_post_path(post), class: "btn btn-primary" %>
+    <% else %>
+      <%= link_to 'Curtir', like_post_path(post), class: "btn btn-primary" %>
+    <% end %>
+    <%= link_to 'Comentar', '#' %>
+  </div>
+<% end %>
