@@ -1,3 +1,30 @@
 .content-actions {
   margin: 15px 15px 15px 15px;
 }
+
+.task-form, .task-action {
+  padding: 25px;
+}
+
+.task-form label {
+  color: #979797;
+  padding-top: 15px;
+  font-family: "Open Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.task-form input, .task-form textarea {
+  width: 100%;
+  padding: 5px 15px 5px 15px;
+  font-family: "Open Sans",sans-serif;
+}
+
+.task-action input {
+  background: #EBE9E4 none repeat scroll 0% 0%;
+  color: #666;
+  border-radius: 4px;
+  padding: 10px 15px;
+  font-size: 14px;
+  margin-bottom: 15px;
+}

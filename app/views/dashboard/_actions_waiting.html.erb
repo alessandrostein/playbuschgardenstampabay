@@ -12,11 +12,11 @@
     </div>
     <div class="col-sm-2">
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-2">
       <p>Expira em</p>
     </div>
     <div class="col-sm-2">
-
+      <p>Criado por</p>
     </div>
   </div>
 
@@ -26,16 +26,16 @@
         <p><%= link_to 'Aguardando', "#", class: "btn-share" %></p>
       </div>
       <div class="col-sm-3">
-        <p><%= action.task.try(:description) %></p>
+        <p><%= action.task.try(:title) %></p>
       </div>
       <div class="col-sm-2">
         <p><%= link_to 'Ver detalhes', "#", class: "btn-see-more" %></p>
       </div>
-      <div class="col-sm-3">
+      <div class="col-sm-2">
         <p><%= distance_of_time_in_words(Date.today, action.task.try(:expires_on)) %></p>
       </div>
-      <div class="col-sm-2">
-        <p><%= image_tag "avatar.png", class: "img-responsive avatar-box-waiting" %> - <%= action.task.user.name %></p>
+      <div class="col-sm-3">
+        <p><%= image_tag "avatar.png", class: "avatar-box-waiting" %> <%= action.task.user.try(:name) %></p>
       </div>
     </div>
   <% end %>

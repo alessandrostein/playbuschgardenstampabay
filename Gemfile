@@ -31,6 +31,7 @@ gem 'merit'
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
   gem 'rails-assets-font-awesome'
+  gem 'rails-assets-gmaps'
 end
 
 # Use ActiveModel has_secure_password
@@ -52,4 +53,3 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-

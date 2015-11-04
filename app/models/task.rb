@@ -3,7 +3,7 @@ class Task < ActiveRecord::Base
   has_many :actions
   has_many :posts
 
-  attr_accessible :description, :expires_on, :address, :city, :province, :country
+  attr_accessible :title, :description, :expires_on, :address, :city, :province, :country
 
   scope :actions_requiring_approval, ->(){
     joins(:actions).where('actions.status = 0')

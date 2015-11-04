@@ -1,23 +1,25 @@
-<div class="row">
-  <div class="col-sm-8">
-    <div class="dash">
-      <div class="row">
-        Olá <%= current_user.name %>, tudo bem?
-      </div>
-      <div class="row">
-        <%= render 'actions_pending' %>
-      </div>
-      <div class="row">
-        <%= render 'actions_waiting' %>
-      </div>
-      <div class="row">
-        <%= render 'actions_requiring_approval' %>
-      </div>
-    </div>
-  </div>
+<div class="dash">
+  <div class="row">
+    <div class="col-sm-8">
 
-  <div class="col-sm-4">
-    <%= render 'last_wins' %>
+        <div class="row">
+          Olá <%= current_user.name %>, tudo bem?
+        </div>
+        <div class="row">
+          <%= render 'actions_pending' %>
+        </div>
+        <div class="row">
+          <%= render 'actions_waiting' %>
+        </div>
+        <div class="row">
+          <%= render 'actions_requiring_approval' %>
+        </div>
+      </div>
+
+
+    <div class="col-sm-4">
+      <%= render 'last_wins' %>
+    </div>
   </div>
 </div>
 

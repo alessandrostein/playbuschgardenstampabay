@@ -15,21 +15,21 @@
     <div class="tasks-grid">
       <table class="table">
         <tr>
-          <td style="width: 15%;">Descrição</td>
-          <td style="width: 13%;">Expira em</td>
-          <td style="width: 13%;">Cidade</td>
+          <td style="width: 15%;">Ação</td>
+          <td style="width: 15%;">Expira em</td>
+          <td style="width: 15%;">Cidade</td>
           <td style="width: 15%;">Criado em</td>
           <td style="width: 15%;">Criado por</td>
-          <td style="width: 29%;"></td>
+          <td style="width: 25%;"></td>
         </tr>
 
         <% @tasks.each do |task| %>
           <tr class="content-task">
-            <td><%= task.description %></td>
+            <td><%= task.title %></td>
             <td><%= distance_of_time_in_words(Date.today, task.expires_on) %></td>
             <td><%= task.city %></td>
             <td><%= time_ago_in_words(task.created_at) %> atrás</td>
-            <td><%= image_tag "avatar.png", class: "img-responsive avatar-box-waiting" %> <%= task.user.try(:name) %></td>
+            <td><p><%= image_tag "avatar.png", class: "avatar-box-waiting" %> <%= task.user.try(:name) %></p></td>
             <td style="text-align: center;">
               <%= link_to 'Ver detalhes', task_path(task), class: "btn-see-more" %>
               <%= link_to 'Participar', '#', class: "btn-ok", :"data-task-id" => "#{task.id}" %>
