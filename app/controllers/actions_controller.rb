@@ -2,6 +2,12 @@ class ActionsController < InheritedResources::Base
 
   before_action :authenticate_user!
 
+  before_action :set_menu_context, if: ->() { user_signed_in? }
+
+  def set_menu_context
+    @menu_context = actual_menu_context
+  end
+
   def participate
     if current_user.actions.create(status: :pending, task_id: params[:task_id])
       render json: { sucess: true }

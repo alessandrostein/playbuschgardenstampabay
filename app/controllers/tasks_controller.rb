@@ -2,8 +2,14 @@ class TasksController < InheritedResources::Base
 
   before_action :authenticate_user!
 
+  before_action :set_menu_context, if: ->() { user_signed_in? }
+
+  def set_menu_context
+    @menu_context = actual_menu_context
+  end
+
   def index
-    @tasks = current_user.tasks
+    @tasks = Task.where("expires_on > ?", Date.today)
   end
 
   def create

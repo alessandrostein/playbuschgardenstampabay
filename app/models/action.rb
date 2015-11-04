@@ -10,5 +10,3 @@ class Action < ActiveRecord::Base
     where('actions.status = 1 and actions.task_id in (?)', tasks)
   }
 end
-
-SELECT "actions".* FROM "actions" WHERE (status = 1 and task_id in (SELECT "tasks"."id" FROM "tasks" WHERE "tasks"."user_id" = 1))

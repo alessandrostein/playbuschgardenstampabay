@@ -12,6 +12,9 @@
 
           <!--"Olá, visitante! Seja bem-vindo!
               Para entrar, por favor preencha os dados abaixo:" sugestão: Rubens -->
+          <div class="field">
+            <%= f.text_field :name, title: "Informe seu nome", placeholder: "Informe seu nome" %>
+          </div>
 
           <div class="field">
             <%= f.email_field :email, autocomplete: true, title: "Informe seu email", placeholder: "Digite seu e-mail" %>
@@ -25,9 +28,7 @@
           </div>
 
           <!-- Informar ao usuário o mínimo de 8 caracteres  -->
-          <div class="field">
-            <%= f.password_field :password_confirmation, autocomplete: "off", title: "Confirme sua senha", placeholder: "Confirme sua senha" %>
-          </div>
+          <!--  Sugestão Lucas, remover confirmar senha -->
 
           <div class="actions">
             <%= f.submit "Pronto, vamos começar!" %>

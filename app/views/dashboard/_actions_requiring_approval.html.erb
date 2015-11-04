@@ -1,0 +1,41 @@
+<div class="box">
+  <div class="title">
+    <h1><i class="fa fa-heart"></i> Ações para aprovar</h1>
+  </div>
+
+  <div class="row box-table">
+    <div class="col-sm-2">
+      <p>Realizada por</p>
+    </div>
+    <div class="col-sm-3">
+      <p>Ação</p>
+    </div>
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-3">
+      <p>Expira em</p>
+    </div>
+    <div class="col-sm-2">
+    </div>
+  </div>
+
+  <% Action.actions_requiring_approval(current_user.tasks.select(:id)).each do |action| %>
+    <div class="row box-table">
+      <div class="col-sm-2">
+        <p><%= image_tag "avatar.png", class: "img-responsive avatar-box-waiting" %> <%= action.user.name %></p>
+      </div>
+      <div class="col-sm-3">
+        <p><%= action.task.try(:description) %></p>
+      </div>
+      <div class="col-sm-2">
+        <p><%= link_to 'Ver detalhes', "#", class: "btn-see-more" %></p>
+      </div>
+      <div class="col-sm-3">
+        <p><%= distance_of_time_in_words(Date.today, action.task.try(:expires_on)) %></p>
+      </div>
+      <div class="col-sm-2">
+        <p><%= link_to 'Aceito', '#', class: "btn-finalize", :"data-action-id" => "#{action.id}" %></p>
+      </div>
+    </div>
+  <% end %>
+</div>
