@@ -1,109 +1,116 @@
 <div class="last-wins">
-  <h1>Últimas conquistas</h1>
 
-  <div class="row">
-    <div class="time">
-      <p><i class="fa fa-clock-o"></i> 10 segundos atrás</p>
+  <div class="box">
+    <div class="title">
+      <h1><i class="fa fa-list"></i> Classificação</h1>
+    </div>
+
+    <div class="ranking">
+      <div class="row box-table table-header">
+        <div class="col-sm-2">
+          <p>Posição</p>
+        </div>
+        <div class="col-sm-6">
+          <p>Nome</p>
+        </div>
+        <div class="col-sm-4">
+          <p>Pontos</p>
+        </div>
+      </div>
+
+      <div class="row box-table">
+        <div class="col-sm-2 user-position">
+          <p>1</p>
+        </div>
+        <div class="col-sm-6 user-position">
+          <p><%= image_tag "avatar.png", class: "avatar-box-waiting" %> Alessandro</p>
+        </div>
+        <div class="col-sm-4 user-position">
+          <p>50 pontos</p>
+        </div>
+      </div>
+
+      <div class="row box-table">
+        <div class="col-sm-2">
+          <p>2</p>
+        </div>
+        <div class="col-sm-6">
+          <p><%= image_tag "avatar.png", class: "avatar-box-waiting" %> Rubens</p>
+        </div>
+        <div class="col-sm-4">
+          <p>35 pontos</p>
+        </div>
+      </div>
+
+      <div class="row box-table">
+        <div class="col-sm-2">
+          <p>3</p>
+        </div>
+        <div class="col-sm-6">
+          <p><%= image_tag "avatar.png", class: "avatar-box-waiting" %> Emiliano</p>
+        </div>
+        <div class="col-sm-4">
+          <p>5 pontos</p>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="row">
-    <div class="circle">
-      <p><i class="fa fa-star"></i></p>
+  <div class="box">
+    <div class="title">
+      <h1><i class="fa fa-star"></i></i> Últimas conquistas</h1>
     </div>
-    <div class="description">
-      <p>Você subiu de nível</p>
+
+    <div class="wins">
+      <ul>
+        <li>
+          <div class="time">
+            <p><i class="fa fa-clock-o"></i> 10 segundos atrás</p>
+          </div>
+          <ul class="win-details">
+            <li>
+              <div class="circle">
+                <p><i class="fa fa-star"></i></p>
+              </div>
+            </li>
+            <li>
+              <p class="win-info">Você subiu de nível</p>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <div class="time">
+            <p><i class="fa fa-clock-o"></i> 1 minuto atrás</p>
+          </div>
+          <ul class="win-details">
+            <li>
+              <div class="circle">
+                <p>5</p>
+              </div>
+            </li>
+            <li>
+              <p class="win-info">pontos por curtir uma publicação</p>
+            </li>
+          </ul>
+        </li>
+
+        <li>
+          <div class="time">
+            <p><i class="fa fa-clock-o"></i> 3 horas e 15 minutos atrás</p>
+          </div>
+          <ul class="win-details">
+            <li>
+              <div class="circle">
+                <p><i class="fa fa-trophy"></i></p>
+              </div>
+            </li>
+            <li>
+              <p class="win-info">Você recebeu uma recompensa</p>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </div>
   </div>
-
-  <div class="row">
-    <div class="time">
-      <p><i class="fa fa-clock-o"></i> 1 minuto atrás</p>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="circle">
-      <p>5</p>
-    </div>
-    <div class="description">
-      <p>pontos por curtir uma publicação</p>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="time">
-      <p><i class="fa fa-clock-o"></i> 3 horas e 15 minutos atrás</p>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="circle">
-      <p><i class="fa fa-trophy"></i></p>
-    </div>
-    <div class="description">
-      <p>Você recebeu uma recompensa</p>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="time">
-      <p><i class="fa fa-clock-o"></i> 5 horas atrás</p>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="circle">
-      <p>10</p>
-    </div>
-    <div class="description">
-      <p>pontos por criar uma nova ação</p>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="time">
-      <p><i class="fa fa-clock-o"></i> 5 horas atrás</p>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="circle">
-      <p>5</p>
-    </div>
-    <div class="description">
-      <p>pontos por compartilhar uma ação.</p>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="time">
-      <p><i class="fa fa-clock-o"></i> 1 dia atrás</p>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="circle">
-      <p><i class="fa fa-trophy"></i></p>
-    </div>
-    <div class="description">
-      <p>Você recebeu uma recompensa</p>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="time">
-      <p><i class="fa fa-clock-o"></i> 3 dias atrás</p>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="circle">
-      <p>1</p>
-    </div>
-    <div class="description">
-      <p>ponto de Boas Vindas</p>
-    </div>
-  </div>
-
 </div>

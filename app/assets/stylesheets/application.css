@@ -180,28 +180,30 @@ footer .row ul li {
   margin-left: 10px;
 }
 
-.last-wins, .task-more-information {
-  padding: 15px;
+/*.last-wins, .task-more-information {
+  padding: 15px;*/
   /*background-color: #FBFBFB;*/
-  background-color: #F2F0EA;
+  /*background-color: #F2F0EA;
   border-top-right-radius: 7px;
   margin-top: -30px;
   margin-right: -30px;
-}
+}*/
 
-.last-wins h1, .last-wins, .task-more-information {
+/*.last-wins h1, .last-wins, .task-more-information {
   font-family: "Abel";
   font-size: 18px;
   font-weight: 300;
   text-align: center;
   color: #979797;;
-}
+}*/
 
 .last-wins .time {
   margin-top: 5px;
   color: rgb(100, 183, 254);
-  font-size: 12px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
   text-align: left;
+  padding-left: 5px;
 }
 
 .last-wins .description {
@@ -215,8 +217,8 @@ footer .row ul li {
 
 .last-wins .circle {
   float: left;
-  height: 30px;
-  width: 30px;
+  height: 45px;
+  width: 45px;
   border-radius: 43px;
   background-color: #F2F0EA;
   border: 2px solid #FFF;
@@ -229,11 +231,11 @@ footer .row ul li {
   color: #55B771;
   font-family: "Open Sans",Arial,sans-serif;
   font-weight: bold;
-  font-size: 14px;
+  font-size: 22px;
 }
 
-.last-wins .row, .task-more-information .row{
-  padding-left: 55px;
+.last-wins .wins-rows {
+  padding: 15px;
 }
 
 .task-main {
@@ -406,23 +408,23 @@ footer .row ul li {
   padding: 0 20px 20px 20px;
 }
 
-.task-statistics {
+.task-statistics, .last-wins .wins {
   text-align: left;
   padding: 0 20px 20px 20px;
 }
 
-.task-statistics ul {
+.task-statistics ul, .last-wins .wins ul {
   padding-left: 0px;
 }
 
-.task-statistics-details li {
+.task-statistics-details li, .win-details li {
   display: inline-block;
   vertical-align: middle;
   margin-right: 5px;
-  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
-.task-statistics-details .statistic-info {
+.task-statistics-details .statistic-info, .last-wins .wins .win-details .win-info {
   color: #868480;
   font-family: "Open Sans",sans-serif;
   font-size: 13px;
@@ -470,4 +472,11 @@ footer .row ul li {
 .task-pending {
   background-color: rgba(255, 255, 0, 0.41);
   color: #868480;
+}
+
+.user-position {
+  background: rgba(0, 128, 0, 0.41) none repeat scroll 0% 0%;
+  height: 30px;
+  color: #FFF;
+  padding-top: 3px;
 }
