@@ -10,7 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require font-awesome
+ *= require fontawesome
  *= require bootstrap
  *= require dashboard
  *= require tasks
@@ -201,6 +201,7 @@ footer .row ul li {
   margin-top: 5px;
   color: rgb(100, 183, 254);
   font-size: 12px;
+  text-align: left;
 }
 
 .last-wins .description {
@@ -258,9 +259,8 @@ footer .row ul li {
 
 .circle-o {
   margin: 0 auto;
-  float: left;
-  height: 130px;
-  width: 130px;
+  height: 70px;
+  width: 70px;
   border-radius: 63px;
   background-color: #F2F0EA;
   border: 2px solid #FFF;
@@ -273,7 +273,7 @@ footer .row ul li {
   color: #55B771;
   font-family: "Open Sans",Arial,sans-serif;
   font-weight: bold;
-  font-size: 84px;
+  font-size: 40px;
 }
 
 .chose-city, .list-task {
@@ -328,7 +328,7 @@ footer .row ul li {
   color: #666;
 }
 
-.btn-ok:hover {
+.btn-push-table:hover {
   background: #56BF74 none repeat scroll 0% 0%;
   text-decoration: none;
   color: #FFF;
@@ -340,7 +340,7 @@ footer .row ul li {
   color: #FFF;
 }
 
-.btn-ok, .btn-confirmate, .btn-finalize {
+.btn-push-table, .btn-confirmate, .btn-finalize {
   background: #55B771 none repeat scroll 0% 0%;
   color: #FFF;
   border-radius: 4px;
@@ -386,6 +386,11 @@ footer .row ul li {
   padding: 5px 15px 5px 15px;
 }
 
+.table-header p {
+  color: #979797;
+  font-weight: 300;
+}
+
 .box-table p {
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
@@ -394,4 +399,75 @@ footer .row ul li {
 .avatar-box-waiting {
   width: 25px;
   height: 25px;
+}
+
+.task-actions {
+  text-align: center;
+  padding: 0 20px 20px 20px;
+}
+
+.task-statistics {
+  text-align: left;
+  padding: 0 20px 20px 20px;
+}
+
+.task-statistics ul {
+  padding-left: 0px;
+}
+
+.task-statistics-details li {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+  margin-top: 15px;
+}
+
+.task-statistics-details .statistic-info {
+  color: #868480;
+  font-family: "Open Sans",sans-serif;
+  font-size: 13px;
+}
+
+.btn-edit, .btn-remove, .btn-push {
+  color: #FFF;
+  border-radius: 4px;
+  padding: 10px 25px;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.btn-push {
+  background: rgba(0, 128, 0, 0.41) none repeat scroll 0% 0%;
+}
+
+.btn-edit {
+  background: rgba(0, 0, 255, 0.41) none repeat scroll 0% 0%;
+}
+
+.btn-remove {
+  background: rgba(255, 0, 0, 0.41) none repeat scroll 0% 0%;
+}
+
+.info-points {
+  padding: 10px 15px;
+  font-family: "Open Sans",sans-serif;
+  font-size: 25px;
+  color: #64B7FE;
+  margin-bottom: 15px;
+}
+
+.task-active, .task-pending {
+  font-family: 'Open Sans', sans-serif;
+  padding: 5px 10px;
+  border-radius: 7px;
+}
+
+.task-active {
+  background-color: rgba(0, 128, 0, 0.41);
+  color: #FFF;
+}
+
+.task-pending {
+  background-color: rgba(255, 255, 0, 0.41);
+  color: #868480;
 }

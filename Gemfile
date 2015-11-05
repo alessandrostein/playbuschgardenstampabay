@@ -30,7 +30,7 @@ gem 'merit'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
-  gem 'rails-assets-font-awesome'
+  gem 'rails-assets-fontawesome'
   gem 'rails-assets-gmaps'
 end
 

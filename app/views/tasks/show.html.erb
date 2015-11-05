@@ -6,7 +6,7 @@
           <h1><i class="fa fa-heart"></i> Detalhes da ação <%= @task.title %></h1>
         </div>
 
-        <div class="row box-table">
+        <div class="row box-table table-header">
           <div class="col-sm-2">
             <p>Situação</p>
           </div>
@@ -25,7 +25,7 @@
         </div>
         <div class="row box-table">
           <div class="col-sm-2">
-            <p><%= link_to 'Ativo', "#", class: "btn-ok" %></p>
+            <p><span class="task-active">Ativo</span></p>
           </div>
           <div class="col-sm-3">
             <p><%= @task.title %></p>
@@ -41,7 +41,7 @@
           </div>
         </div>
 
-        <div class="row box-table">
+        <div class="row box-table table-header">
           <div class="col-sm-12">
             <p>Descrição</p>
           </div>
@@ -52,19 +52,17 @@
           </div>
         </div>
 
-        <div class="row box-table">
+        <div class="row box-table table-header">
           <div class="col-sm-12">
             <p>Localização</p>
           </div>
         </div>
         <div class="row box-table">
           <div class="col-sm-12">
-            <p><%= @task.address %>, <%= @task.city %>, <%= @task.province %>, <%= @task.country %></p>
+            <p class="address"><%= @task.address %>, <%= @task.city %>, <%= @task.province %>, <%= @task.country %></p>
           </div>
         </div>
       </div>
-
-
     </div>
 
     <div class="col-sm-4">

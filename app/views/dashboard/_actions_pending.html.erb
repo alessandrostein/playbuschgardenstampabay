@@ -3,7 +3,7 @@
     <h1><i class="fa fa-heart"></i> Ações pendentes</h1>
   </div>
 
-  <div class="row box-table">
+  <div class="row box-table table-header">
     <div class="col-sm-2">
       <p>Situação</p>
     </div>
@@ -22,7 +22,7 @@
   <% current_user.actions.where(status: 0).each do |action| %>
     <div class="row box-table">
       <div class="col-sm-2">
-        <p><%= link_to 'Pendente', "#", class: "btn-share" %></p>
+        <p><span class="task-pending">Pendente</span></p>
       </div>
       <div class="col-sm-3">
         <p><%= action.task.title %></p>

@@ -9,4 +9,20 @@ class Task < ActiveRecord::Base
     joins(:actions).where('actions.status = 0')
   }
 
+  def task_is_own?(user_id)
+    self.user.id == user_id
+  end
+
+  def total_with_action_pending
+    self.actions.where(status: 0).count
+  end
+
+  def total_with_action_waiting
+    self.actions.where(status: 1).count
+  end
+
+  def total_with_action_termimated
+    self.actions.where(status: 2).count
+  end
+
 end
