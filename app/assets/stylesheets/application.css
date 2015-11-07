@@ -495,6 +495,10 @@ footer .row ul li {
   background: rgba(255, 0, 0, 0.51);
 }
 
+.btn-comments:hover, .btn-comments:selection {
+  text-decoration: none;
+}
+
 .btn-add-new {
   background: #EBE9E4 none repeat scroll 0% 0%;
   color: #666;
@@ -536,7 +540,7 @@ footer .row ul li {
   color: #979797;
 }
 
-.box-actions .ico-likes {
+.box-actions .ico-likes, .box-actions .ico-remove {
   color: red;
   font-size: 18px;
 }
@@ -580,4 +584,20 @@ footer .row ul li {
 .in-comment {
   width: 100%;
   padding: 5px 15px;
+}
+
+.comments-container {
+  margin-top: 10px;
+}
+
+.show-comments {
+  margin: 10px 10px;
+}
+
+.box-comments {
+  padding: 0px 55px;
+}
+
+.comments-header p, .comments-body {
+  font-size: 12px;
 }
