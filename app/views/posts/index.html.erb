@@ -62,8 +62,13 @@
                 <% unless post.likes.blank? %>
                   <span class="n-likes"><%= post.likes.count %></span>
                 <% end %>
-                <i class="fa fa-comment-o ico-comments"></i><span class="n-comments">2</span>
-                <i class="fa fa-share-alt ico-shares"></i></i><span class="n-shares">2</span>
+                
+                <i class="fa fa-comment-o ico-comments"></i><span class="n-comments"></span>
+
+                <i class="fa fa-share-square-o ico-shares"></i></i>
+                <% if post.task.total_share > 0 %>
+                  <span class="n-shares"><%= post.task.total_share %></span>
+                <% end %>
               </div>
             </div>
           </div>

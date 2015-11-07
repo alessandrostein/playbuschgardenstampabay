@@ -25,4 +25,8 @@ class Task < ActiveRecord::Base
     self.actions.where(status: 2).count
   end
 
+  def total_share
+    self.posts.count
+  end
+
 end

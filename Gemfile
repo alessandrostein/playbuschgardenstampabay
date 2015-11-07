@@ -31,7 +31,7 @@ gem 'merit'
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'
   gem 'rails-assets-fontawesome'
-  gem 'rails-assets-gmaps'
+  gem 'rails-assets-sweetalert'
 end
 
 # Use ActiveModel has_secure_password

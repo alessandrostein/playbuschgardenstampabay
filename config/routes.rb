@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   match '/dashboard' => 'dashboard#index', :via => [:get]
 
   resources :tasks do
-    get :share, :on => :member
+    post :share, :on => :member
   end
 
   resources :posts do

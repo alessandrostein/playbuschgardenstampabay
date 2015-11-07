@@ -18,8 +18,11 @@ class TasksController < InheritedResources::Base
 
   def share
     @task = load_model
-    @task.posts.create!(user_id: current_user.id)
-    redirect_to controller: :posts, action: :index
+    if @task.posts.create!(user_id: current_user.id, text: params[:message])
+      render json: { sucess: true }
+    else
+      render json: { sucess: false }
+    end
   end
 
   protected

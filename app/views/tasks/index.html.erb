@@ -51,7 +51,7 @@
             </div>
             <div class="col-sm-3">
               <%= link_to 'Ver detalhes', task_path(task), class: "btn-sm btn-info" %>
-              <%= link_to 'Compartilhar', share_task_path(task), class: "btn-sm btn-share" %>
+              <%= link_to 'Compartilhar', '#', :'data-task-id' => task.id, :'data-task-title' => task.title, class: "btn-sm btn-share" %>
             </div>
           </div>
         <% end %>
