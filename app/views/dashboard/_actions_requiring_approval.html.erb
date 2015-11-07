@@ -22,19 +22,19 @@
   <% Action.actions_requiring_approval(current_user.tasks.select(:id)).each do |action| %>
     <div class="row box-table">
       <div class="col-sm-3">
-        <p><%= image_tag "avatar.png", class: "avatar-box-waiting" %> <%= action.user.name %></p>
+        <p><%= image_tag "avatar.png", class: "avatar-sm" %> <%= action.user.name %></p>
       </div>
       <div class="col-sm-3">
         <p><%= action.task.try(:title) %></p>
       </div>
       <div class="col-sm-2">
-        <p><%= link_to 'Ver detalhes', "#", class: "btn-see-more" %></p>
+        <p><%= link_to 'Ver detalhes', "#", class: "btn-sm btn-info" %></p>
       </div>
       <div class="col-sm-2">
         <p><%= distance_of_time_in_words(Date.today, action.task.try(:expires_on)) %></p>
       </div>
       <div class="col-sm-2">
-        <p><%= link_to 'Aceito', '#', class: "btn-finalize", :"data-action-id" => "#{action.id}" %></p>
+        <p><%= link_to 'Aprovar', '#', class: "btn-sm btn-create", :"data-action-id" => "#{action.id}" %></p>
       </div>
     </div>
   <% end %>

@@ -5,8 +5,8 @@
 
   <% if @task.task_is_own?(current_user.id) %>
     <div class="task-actions">
-      <%= link_to 'Alterar ação', edit_task_path(@task), class: "btn-edit" %>
-      <%= link_to 'Remover ação',  @task,  method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn-remove" %>
+      <%= link_to 'Alterar ação', edit_task_path(@task), class: "btn-md btn-edit" %>
+      <%= link_to 'Remover ação',  @task,  method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn-md btn-remove" %>
     </div>
   <% end %>
 </div>
@@ -16,7 +16,7 @@
     <h1><i class="fa fa-thumbs-o-up"></i> Participar da ação</h1>
   </div>
   <div class="task-actions">
-    <%= link_to 'Participar', '#', class: "btn-push btn-ok", :"data-task-id" => "#{@task.id}" %>
+    <%= link_to 'Participar', '#', class: "btn-md btn-create", :"data-task-id" => "#{@task.id}" %>
     <span class="info-points">+ 10 pontos</span>
   </div>
 </div>

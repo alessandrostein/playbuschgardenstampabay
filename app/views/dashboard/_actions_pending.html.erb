@@ -22,19 +22,19 @@
   <% current_user.actions.where(status: 0).each do |action| %>
     <div class="row box-table">
       <div class="col-sm-2">
-        <p><span class="task-pending">Pendente</span></p>
+        <p><span class="lg-status status-pending">Pendente</span></p>
       </div>
       <div class="col-sm-3">
         <p><%= action.task.title %></p>
       </div>
       <div class="col-sm-2">
-        <p><%= link_to 'Ver detalhes', task_path(action.task), class: "btn-see-more" %></p>
+        <p><%= link_to 'Ver detalhes', task_path(action.task), class: "btn-sm btn-info" %></p>
       </div>
       <div class="col-sm-3">
         <p><%= distance_of_time_in_words(Date.today, action.task.try(:expires_on)) %></p>
       </div>
       <div class="col-sm-2">
-        <%= link_to 'Finalizar', '#', class: "btn-confirmate", :"data-action-id" => "#{action.id}" %>
+        <%= link_to 'Finalizar', '#', class: "btn-sm btn-create", :"data-action-id" => "#{action.id}" %>
       </div>
     </div>
   <% end %>

@@ -1,16 +1,89 @@
-<% Post.all.order(created_at: :desc).limit(10).each do |post| %>
-  <div class="timeline">
-    <p class="author"><%= post.user.name %> compartilhou uma <%= link_to 'oportunidade', tasks_path() %><span class="pull-right">Data: <%= post.updated_at %></span><p>
-      <pre><%= post.task.description %></pre>
-    <p class="message"><%= post.text %></p>
-    <% unless post.likes.blank? %>
-      <%= post.likes.count %> curtidas
-    <% end %>
-    <% unless post.liked?(current_user.id) %>
-      <%= link_to 'Descurtir', unlike_post_path(post), class: "btn btn-primary" %>
-    <% else %>
-      <%= link_to 'Curtir', like_post_path(post), class: "btn btn-primary" %>
-    <% end %>
-    <%= link_to 'Comentar', '#' %>
+<div class="dash">
+  <div class="row">
+    <div class="col-sm-8">
+      <% first = true %>
+      <% Post.all.order(created_at: :desc).limit(10).each do |post| %>
+        <div class="box">
+          <% if first %>
+            <div class="title">
+              <h1><i class="fa fa-comments"></i> Linha do Tempo</h1>
+            </div>
+            <% first = false %>
+          <% end %>
+
+          <div class="row box-table">
+            <div class="col-sm-9 table-header">
+              <p>
+                <%= image_tag "avatar.png", class: "avatar-sm" %>
+                <%= post.user.name %> compartilhou a ação
+                <strong>
+                  <%= link_to "#{post.task.title}", task_path(post.task) %>
+                </strong>
+              </p>
+            </div>
+            <div class="col-sm-3 time time-right">
+              <p>
+                <i class="fa fa-clock-o"></i>
+                <%= time_ago_in_words(post.created_at) %> atrás
+              </p>
+            </div>
+          </div>
+          <% unless post.text.blank? %>
+            <div class="row box-table">
+              <div class="col-sm-12">
+                <p><%= post.text %><p>
+              </div>
+            </div>
+          <% end %>
+          <div class="row box-table">
+            <div class="col-sm-12">
+              <div class="box-task">
+                <p><%= post.task.description %><p>
+                <div class="box-info">
+                  <p>
+                    <i class="fa fa-map-marker"></i>
+                    Esta ação está localizada em <%= post.task.city %>, <%= post.task.province %>
+                    <%= link_to 'Ver detalhes', task_path(post.task), class: "btn-sm btn-info pull-right" %>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row box-table">
+            <div class="box-actions">
+              <div class="col-sm-12">
+                <% unless post.liked?(current_user.id) %>
+                  <%= link_to '<i class="fa fa-heart ico-likes"></i>'.html_safe, unlike_post_path(post) %>
+                <% else %>
+                  <%= link_to '<i class="fa fa-heart-o ico-likes"></i>'.html_safe, like_post_path(post) %>
+                <% end %>
+
+                <% unless post.likes.blank? %>
+                  <span class="n-likes"><%= post.likes.count %></span>
+                <% end %>
+                <i class="fa fa-comment-o ico-comments"></i><span class="n-comments">2</span>
+                <i class="fa fa-share-alt ico-shares"></i></i><span class="n-shares">2</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row box-table">
+            <div class="box-actions">
+              <div class="col-sm-12">
+                <input type="text" placeholder="Deixe o seu comentário" class="in-comment"></input>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      <% end %>
+    </div>
+
+
+
+    <div class="col-sm-4">
+
+    </div>
   </div>
-<% end %>
+</div>
