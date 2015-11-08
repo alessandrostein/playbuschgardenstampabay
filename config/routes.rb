@@ -11,9 +11,12 @@ Rails.application.routes.draw do
   end
 
   resources :posts do
-    get :like, :on => :member
-    get :unlike, :on => :member
+    post :like, :on => :member
+    post :unlike, :on => :member
   end
+
+  resources :comments, only: [:index, :create]
+  get '/comments/new/(:parent_id)', to: 'comments#new', as: :new_comment
 
   match '/actions/:task_id/participate' => 'actions#participate', :via => [:post]
   match '/actions/:action_id/confirmate' => 'actions#confirmate', :via => [:post]

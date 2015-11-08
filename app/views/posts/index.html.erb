@@ -52,31 +52,86 @@
 
           <div class="row box-table">
             <div class="box-actions">
-              <div class="col-sm-12">
+              <div class="col-sm-10">
                 <% unless post.liked?(current_user.id) %>
-                  <%= link_to '<i class="fa fa-heart ico-likes"></i>'.html_safe, unlike_post_path(post) %>
+                  <%= link_to '<i class="fa fa-heart ico-likes"></i>'.html_safe, unlike_post_path(post), class: "btn-unlike", :method => :post, :remote => true %>
                 <% else %>
-                  <%= link_to '<i class="fa fa-heart-o ico-likes"></i>'.html_safe, like_post_path(post) %>
+                  <%= link_to '<i class="fa fa-heart-o ico-likes"></i>'.html_safe, like_post_path(post), class: "btn-like", :method => :post, :remote => true %>
                 <% end %>
 
                 <% unless post.likes.blank? %>
                   <span class="n-likes"><%= post.likes.count %></span>
                 <% end %>
-                
-                <i class="fa fa-comment-o ico-comments"></i><span class="n-comments"></span>
+
+                <% unless post.comments.blank? %>
+                  <a class="btn-comments" href="#">
+                    <i class="fa fa-comment ico-comments"></i>
+                    <span class="n-comments"><%= post.comments.count %></span>
+                  </a>
+                <% else %>
+                  <i class="fa fa-comment-o ico-comments"></i><span class="n-comments"></span>
+                <% end %>
 
                 <i class="fa fa-share-square-o ico-shares"></i></i>
                 <% if post.task.total_share > 0 %>
                   <span class="n-shares"><%= post.task.total_share %></span>
                 <% end %>
               </div>
+              <div class="col-sm-2">
+                <% if post.post_is_own?(current_user.id) %>
+                  <a class="btn-remove-post pull-right" href="#" data-post-id="<%= post.id %>">
+                    <i class="fa fa-times ico-remove"></i>
+                  </a>
+                <% end %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row show-comments">
+            <div class="col-sm-12">
+              <% post.comments.limit(2).order("created_at DESC").each do |comment| %>
+                <div class="comments-container">
+                  <div class="row box-comments">
+                    <div class="">
+                        <div class="col-sm-9 comments-header">
+                          <p>
+                            <%= image_tag "avatar.png", class: "avatar-sm" %>
+                            <%= comment.user.name %>
+                          </p>
+                        </div>
+                        <div class="col-sm-3 time time-right comments-header">
+                          <p>
+                            <i class="fa fa-clock-o"></i>
+                            <%= time_ago_in_words(comment.created_at) %> atrás
+                          </p>
+                        </div>
+                    </div>
+                  </div>
+
+                  <div class="row box-comments">
+                    <div class="">
+                      <div class="col-sm-9 comments-body">
+                        <%= comment.text %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
             </div>
           </div>
 
           <div class="row box-table">
             <div class="box-actions">
               <div class="col-sm-12">
-                <input type="text" placeholder="Deixe o seu comentário" class="in-comment"></input>
+                <%= simple_form_for(post.comments.build, url: comments_path,
+                  format: :json, remote: true, method: :post) do |f| %>
+
+                  <%= f.input :parent_id, as: :hidden %>
+
+                  <input name="comment[post_id]" type="hidden" value="<%= post.id %>">
+                  <input name="comment[user_id]" type="hidden" value="<%= current_user.id %>">
+                  <input type="text" name="comment[text]" placeholder="Deixe o seu comentário" class="in-comment"></input>
+                <% end %>
               </div>
             </div>
           </div>

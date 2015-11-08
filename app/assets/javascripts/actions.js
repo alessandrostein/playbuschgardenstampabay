@@ -47,8 +47,6 @@ $(function () {
     function(inputValue){
       if (inputValue === false) return false;
 
-      // /tasks/:id/share(.:format)
-
       if (inputValue === "") {
         swal.showInputError("You need to write something!");
         return false
@@ -61,18 +59,58 @@ $(function () {
           swal("Ops!", "Algo inesperado aconteceu", "error");
         };
       });
-
-
     });
   });
 
-});
+  $('.btn-comments').bind('click touch', function(e){
+    if ($(".show-comments").is(":visible") == true ) {
+      $(".show-comments").hide('slow');
+    } else {
+      $(".show-comments").show('slow');
+    }
+  });
 
-// $.post('/panel/wedding/published', {'option': $(this).bootstrapSwitch('state')}, function(data){
-//   if (data.ok) {
-//
-//   } else {
-//
-//   };
-//
-// });
+  $('.btn-remove-post').bind('click touch', function(e){
+    var postId = $(this).data('post-id');
+    swal({
+      title: "Você tem certeza que deseja excluir?",
+      text: "Ao exluir a sua postagem, não haverá formas de recuperá-la mais tarde.",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#DD6B55",
+      confirmButtonText: "Sim, exluir postagem!",
+      cancelButtonText: "Cancelar",
+      closeOnConfirm: false
+    },
+    function(isConfirm){
+      if (isConfirm) {
+        $.ajax({
+          url: '/posts/' + postId,
+          type: 'DELETE',
+          success: function(result) {
+            swal("Removido!", "Sua postagem foi removido com sucesso.", "success");
+          },
+          error: function(result){
+            swal("Erro ao remover postagem!",
+              "Por favor, entre em contato com nossa equipe.", "error");
+          }
+        });
+      }
+    });
+  });
+
+  $(document).on('ajax:success', '#new_comment', function(e, data, status, xhr){
+    $('form')[0].reset();
+    Turbolinks.visit('/posts');
+    $(".show-comments").show('slow');
+  });
+
+  $('.btn-like').bind('ajax:complete', function() {
+    Turbolinks.visit('/posts');
+  });
+
+  $('.btn-unlike').bind('ajax:complete', function() {
+    Turbolinks.visit('/posts');
+  });
+
+});
