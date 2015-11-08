@@ -204,3 +204,8 @@ pt-BR:
       long: "%d de %B de %Y, %H:%M"
       short: "%d de %B, %H:%M"
     pm: ''
+  merit:
+    granted_badge: "Foi recompensado com %{badge_name}"
+    granted_points: "Você recebeu %{points} pontos"
+    removed_badge: "A recompensa %{badge_name} foi removida"
+    removed_points: "Foram removidos %{points} pontos"

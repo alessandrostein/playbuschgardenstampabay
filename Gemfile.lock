@@ -44,6 +44,8 @@ GEM
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
     byebug (8.0.0)
+    classifier-reborn (2.0.4)
+      fast-stemmer (~> 1.0)
     closure_tree (6.0.0)
       activerecord (>= 4.1.0)
       with_advisory_lock (>= 3.0.0)
@@ -64,6 +66,7 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.6.0)
+    fast-stemmer (1.0.2)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     has_scope (0.6.0)
@@ -182,6 +185,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  classifier-reborn
   closure_tree
   coffee-rails (~> 4.1.0)
   devise

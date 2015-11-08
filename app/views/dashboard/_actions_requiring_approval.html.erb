@@ -34,7 +34,7 @@
         <p><%= distance_of_time_in_words(Date.today, action.task.try(:expires_on)) %></p>
       </div>
       <div class="col-sm-2">
-        <p><%= link_to 'Aprovar', '#', class: "btn-sm btn-create", :"data-action-id" => "#{action.id}" %></p>
+        <p><%= link_to 'Aprovar', '#', class: "btn-sm btn-create cta-finalize", :"data-action-id" => "#{action.id}" %></p>
       </div>
     </div>
   <% end %>

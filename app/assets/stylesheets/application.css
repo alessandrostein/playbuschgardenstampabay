@@ -260,8 +260,8 @@ footer .row ul li {
 
 .circle-o {
   margin: 0 auto;
-  height: 70px;
-  width: 70px;
+  height: 65px;
+  width: 65px;
   border-radius: 63px;
   background-color: #F2F0EA;
   border: 2px solid #FFF;
@@ -270,7 +270,7 @@ footer .row ul li {
 
 .circle-o p {
   text-align: center;
-  margin-top: 3px;
+  margin-top: 2px;
   color: #55B771;
   font-family: "Open Sans",Arial,sans-serif;
   font-weight: bold;
@@ -383,7 +383,7 @@ footer .row ul li {
 .info-points {
   padding: 10px 15px;
   font-family: "Open Sans",sans-serif;
-  font-size: 25px;
+  font-size: 22px;
   color: #64B7FE;
   margin-bottom: 15px;
 }
@@ -497,6 +497,10 @@ footer .row ul li {
 
 .btn-comments:hover, .btn-comments:selection {
   text-decoration: none;
+}
+
+.btn-disabled {
+  pointer-events: none
 }
 
 .btn-add-new {

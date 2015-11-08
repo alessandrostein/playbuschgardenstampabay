@@ -28,6 +28,7 @@ gem 'simple_form'
 gem 'protected_attributes'
 gem 'merit'
 gem 'closure_tree'
+gem 'classifier-reborn'
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'

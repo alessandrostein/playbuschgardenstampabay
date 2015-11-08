@@ -61,7 +61,7 @@
       <h1><i class="fa fa-star"></i></i> Últimas conquistas</h1>
     </div>
 
-    <div class="wins">
+    <!-- <div class="wins">
       <ul>
         <li>
           <div class="time">
@@ -113,4 +113,40 @@
       </ul>
     </div>
   </div>
+</div>
+<!-- #<Merit::ActivityLog id: 94, action_id: 94, related_change_type: "Merit::Score::Point",
+related_change_id: 94, description: "Você recebeu 10 pontos", created_at: "2015-11-08 20:04:40">] -->
+
+
+
+<div class="wins">
+  <ul>
+    <% Merit::ActivityLog.where("action_id in (select id from merit_actions where user_id = '#{current_user.id}')").order('created_at desc').limit(5).each do |action| %>
+      <li>
+        <div class="time">
+          <p><i class="fa fa-clock-o"></i> <%= time_ago_in_words(action.created_at) %> atrás</p>
+        </div>
+        <ul class="win-details">
+          <li>
+            <div class="circle">
+              <% if action.related_change_type == "Merit::Score::Point" %>
+                <p>
+                  <%= Merit::Score::Point.find(action.action_id).num_points %>
+                </p>
+              <% else %>
+                <p><i class="fa fa-trophy"></i></p>
+              <% end %>
+            </div>
+          </li>
+          <li>
+            <% if action.related_change_type == "Merit::Score::Point" %>
+
+            <% else %>
+              <p class="win-info">Indefinido</p>
+            <% end %>
+          </li>
+        </ul>
+      </li>
+    <% end %>
+  </ul>
 </div>

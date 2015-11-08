@@ -27,7 +27,17 @@ module Merit
 
       score 10, :on => [
         'tasks#share'
-      ]
+      ], category: "pontos por compartilhar uma publicação"
+      #
+      # score 1, on: 'users#create', category: 'pontos de boas vindas'
+      #
+      # score 5, on: 'posts#like', category: 'pontos por curtir uma publicação'
+      # score -5, on: 'posts#unlike', category: 'pontos por descurtir uma publicação'
+      #
+      # score 10, on: 'tasks#share', category: 'pontos por compartilhar uma publicação'
+      #
+      # score 10, on: 'actions#participate', category: 'pontos por participar de uma ação'
+      # score 15, on: 'actions#confirmate', category: 'pontos por finalizar uma ação'
 
       #
       # score 15, :on => 'reviews#create', :to => [:reviewer, :reviewed]

@@ -73,7 +73,7 @@
                 <% end %>
 
                 <i class="fa fa-share-square-o ico-shares"></i></i>
-                <% if post.task.total_share > 0 %>
+                <% if post.task.total_share > 0 %>                  
                   <span class="n-shares"><%= post.task.total_share %></span>
                 <% end %>
               </div>
@@ -99,7 +99,7 @@
                             <%= comment.user.name %>
                           </p>
                         </div>
-                        <div class="col-sm-3 time time-right comments-header">
+                        <div class="col-sm-3 time comments-header">
                           <p>
                             <i class="fa fa-clock-o"></i>
                             <%= time_ago_in_words(comment.created_at) %> atrás
@@ -111,6 +111,13 @@
                   <div class="row box-comments">
                     <div class="">
                       <div class="col-sm-9 comments-body">
+
+                        <% if comment.good? %>
+                          <i class="fa fa-smile-o" style="color: green;"></i>
+                        <% else %>
+                          <i class="fa fa-frown-o" style="color: blue"></i>
+                        <% end %>
+
                         <%= comment.text %>
                       </div>
                     </div>

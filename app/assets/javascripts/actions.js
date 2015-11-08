@@ -1,31 +1,63 @@
 $(function () {
 
-  $('.btn-ok').bind('click touch', function(e){
+  $('.cta-participate').bind('click touch', function(e){
     var taskId = $(this).data('task-id');
     var resource = '/actions/' + taskId + '/participate';
 
     $.post(resource, function(data){
-      alert("Obaaaaa!");
+      swal({
+        title: "Obaa!",
+        text: "Esta ação foi vinculada ao seu perfil, por favor, ao realizar a ação, não esqueça de finalizar no seu Painel de Controle.",
+        type: "success",
+      },
+      function(isConfirm){
+        Turbolinks.visit('/dashboard');
+      });      
     });
 
   });
 
-  $('.btn-confirmate').bind('click touch', function(e){
+  $('.cta-confirmate').bind('click touch', function(e){
     var actionId = $(this).data('action-id');
     var resource = '/actions/' + actionId + '/confirmate';
 
-    $.post(resource, function(data){
-      alert("Confirmado!");
+    swal({
+      title: "Oba! Parabéns por fazer a diferença!",
+      text: "Você tem certeza que conclui esta ação? Iremos informar o responsável por ela para validar a sua participação ok?",
+      type: "info",
+      showCancelButton: true,
+      confirmButtonColor: "#DD6B55",
+      confirmButtonText: "Sim, eu conclui esta ação!",
+      cancelButtonText: "Cancelar",
+      closeOnConfirm: false
+    },
+    function(){
+      $.post(resource, function(data){
+        swal({
+          title: "Parabéns!!",
+          text: "Informamos o criador desta ação para validar a realização da mesma. Parabéns por fazer um mundo melhor.",
+          type: "success",
+        },
+        function(isConfirm){
+          Turbolinks.visit('/dashboard');
+        });
+      });
     });
-
   });
 
-  $('.btn-finalize').bind('click touch', function(e){
+  $('.cta-finalize').bind('click touch', function(e){
     var actionId = $(this).data('action-id');
     var resource = '/actions/' + actionId + '/finalize';
 
     $.post(resource, function(data){
-      alert("Finalizado!");
+      swal({
+        title: "Obaa!",
+        text: "As devidas recompensas foram debitadas para o usuário que realizou esta ação. Obrigado!",
+        type: "success",
+      },
+      function(isConfirm){
+        Turbolinks.visit('/dashboard');
+      });
     });
 
   });
@@ -48,7 +80,7 @@ $(function () {
       if (inputValue === false) return false;
 
       if (inputValue === "") {
-        swal.showInputError("You need to write something!");
+        swal.showInputError("Por favo, escreva uma mensagem!");
         return false
       }
 
