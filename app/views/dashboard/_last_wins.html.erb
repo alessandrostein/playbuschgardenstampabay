@@ -140,7 +140,7 @@ related_change_id: 94, description: "Você recebeu 10 pontos", created_at: "2015
           </li>
           <li>
             <% if action.related_change_type == "Merit::Score::Point" %>
-
+              <%= action.description %>
             <% else %>
               <p class="win-info">Indefinido</p>
             <% end %>
