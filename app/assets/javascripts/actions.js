@@ -1,6 +1,6 @@
 $(function () {
 
-  $('.cta-participate').bind('click touch', function(e){
+  $(document).on("click touch", ".cta-participate", function() {
     var taskId = $(this).data('task-id');
     var resource = '/actions/' + taskId + '/participate';
 
@@ -12,12 +12,12 @@ $(function () {
       },
       function(isConfirm){
         Turbolinks.visit('/dashboard');
-      });      
+      });
     });
 
   });
 
-  $('.cta-confirmate').bind('click touch', function(e){
+  $(document).on("click touch", ".cta-confirmate", function() {
     var actionId = $(this).data('action-id');
     var resource = '/actions/' + actionId + '/confirmate';
 
@@ -45,7 +45,7 @@ $(function () {
     });
   });
 
-  $('.cta-finalize').bind('click touch', function(e){
+  $(document).on("click touch", ".cta-finalize", function() {
     var actionId = $(this).data('action-id');
     var resource = '/actions/' + actionId + '/finalize';
 
@@ -62,7 +62,7 @@ $(function () {
 
   });
 
-  $('.btn-share').bind('click touch', function(e){
+  $(document).on("click touch", ".btn-share", function() {
     var taskId = $(this).data('task-id');
     var taskTitle = $(this).data('task-title');
     swal({
@@ -94,7 +94,7 @@ $(function () {
     });
   });
 
-  $('.btn-comments').bind('click touch', function(e){
+  $(document).on("click touch", ".btn-comments", function() {
     if ($(".show-comments").is(":visible") == true ) {
       $(".show-comments").hide('slow');
     } else {
@@ -102,7 +102,7 @@ $(function () {
     }
   });
 
-  $('.btn-remove-post').bind('click touch', function(e){
+  $(document).on("click touch", ".btn-remove-post", function() {
     var postId = $(this).data('post-id');
     swal({
       title: "Você tem certeza que deseja excluir?",

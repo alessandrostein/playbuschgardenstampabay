@@ -29,6 +29,7 @@ class Classifier::Bayesian
     @bayesian.train_good "Vou ajudar também"
     @bayesian.train_good "Todos merecem ser ajudados"
     @bayesian.train_good "Claro, contem comigo"
+    @bayesian.train_good "Vou levar meu amigo junto, todos vamos"
 
     @bayesian.train_bad "Não acho válido esta ação, não contem comigo"
     @bayesian.train_bad "Ao realizar a ação, houve uma situação muito chata"
