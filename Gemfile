@@ -31,11 +31,11 @@ gem 'closure_tree'
 gem 'classifier-reborn'
 gem 'whenever', :require => false
 
-source 'https://rails-assets.org' do
-  gem 'rails-assets-bootstrap'
-  gem 'rails-assets-fontawesome'
-  gem 'rails-assets-sweetalert'
-end
+# source 'https://rails-assets.org' do
+#   gem 'rails-assets-bootstrap'
+#   gem 'rails-assets-fontawesome'
+#   gem 'rails-assets-sweetalert'
+# end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
