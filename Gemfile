@@ -27,7 +27,7 @@ gem 'inherited_resources'
 gem 'simple_form'
 gem 'protected_attributes'
 gem 'merit'
-gem 'closure_tree'
+gem 'closure_tree', '5.2.0'
 gem 'classifier-reborn'
 gem 'whenever', :require => false
 
