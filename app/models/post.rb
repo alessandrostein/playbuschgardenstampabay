@@ -13,4 +13,9 @@ class Post < ActiveRecord::Base
   def post_is_own?(user_id)
     self.user.id == user_id
   end
+
+  def self.total_posts
+    Post.count
+  end
+
 end

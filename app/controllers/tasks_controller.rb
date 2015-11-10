@@ -1,7 +1,7 @@
 class TasksController < InheritedResources::Base
 
   before_action :authenticate_user!
-
+  before_action :load_model, only: [:show, :share]
   before_action :set_menu_context, if: ->() { user_signed_in? }
 
   def set_menu_context
@@ -17,7 +17,7 @@ class TasksController < InheritedResources::Base
   end
 
   def share
-    @task = load_model
+    # @task = load_model
     if @task.posts.create!(user_id: current_user.id, text: params[:message])
       render json: { sucess: true }
     else
@@ -32,7 +32,7 @@ class TasksController < InheritedResources::Base
   end
 
   def load_model
-    @task = current_user.tasks.find(params[:id])
+    @task = Task.find(params[:id])
   end
 
   private

@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   root to: "site#index"
 
   match '/dashboard' => 'dashboard#index', :via => [:get]
+  match '/ranking' => 'dashboard#ranking', :via => [:get]
+  match '/wins' => 'dashboard#wins', :via => [:get]
 
   resources :tasks do
     post :share, :on => :member

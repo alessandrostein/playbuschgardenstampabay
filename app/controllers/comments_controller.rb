@@ -15,6 +15,9 @@ class CommentsController < ApplicationController
       @comment = Comment.new(params[:comment])
     end
 
+    classify = Classifier::Bayesian.new(@comment.text)
+    @comment.classifier = classify.is_good? ? :good : :bad
+
     if @comment.save
       render json: { sucess: true }
     else

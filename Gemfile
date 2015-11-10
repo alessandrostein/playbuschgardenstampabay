@@ -28,6 +28,8 @@ gem 'simple_form'
 gem 'protected_attributes'
 gem 'merit'
 gem 'closure_tree'
+gem 'classifier-reborn'
+gem 'whenever', :require => false
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap'

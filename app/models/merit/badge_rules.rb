@@ -21,10 +21,16 @@ module Merit
     include Merit::BadgeRulesMethods
 
     def initialize
+      grant_on 'devise/registrations#create', badge_id: 1, to: :action_user
+      grant_on 'tasks#share', badge_id: 3, to: @task
+      grant_on 'comments#create', badge_id: 4, to: @comment
+      grant_on 'actions#participate', badge_id: 6, to: @action
+      grant_on 'actions#confirmate', badge_id: 7, to: @action
+
       # If it creates user, grant badge
       # Should be "current_user" after registration for badge to be granted.
       # Find badge by badge_id, badge_id takes presidence over badge
-       grant_on 'users#create', badge_id: 1, to: :action_user
+      #  grant_on 'users#create', badge_id: 1, to: :action_user
 
       # If it has 10 comments, grant commenter-10 badge
       # grant_on 'comments#create', badge: 'commenter', level: 10 do |comment|

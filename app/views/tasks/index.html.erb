@@ -1,6 +1,6 @@
 <div class="dash">
   <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-8">
       <div class="box">
         <div class="title">
           <h1><i class="fa fa-heart"></i> Ações</h1>
@@ -17,6 +17,8 @@
             </select>
           </div>
         </div>
+
+        <!-- <%= select_tag "rsvp_order_options", options_for_select([ ["Ordem alfabética", "name"], ["Confirmações mais recentes", "confirmation_date"] ], params[:order] || 'name' ), id: 'order-rsvps' %> -->
 
         <div class="row box-table table-header">
           <div class="col-sm-3">
@@ -51,98 +53,58 @@
             </div>
             <div class="col-sm-3">
               <%= link_to 'Ver detalhes', task_path(task), class: "btn-sm btn-info" %>
-              <%= link_to 'Compartilhar', '#', :'data-task-id' => task.id, :'data-task-title' => task.title, class: "btn-sm btn-share" %>
+              <!-- <%= link_to 'Compartilhar', '#', :'data-task-id' => task.id, :'data-task-title' => task.title, class: "btn-sm btn-share" %> -->
             </div>
           </div>
         <% end %>
       </div>
     </div>
-  </div>
-</div>
+    <div class="col-sm-4">
+      <div class="box">
+        <div class="title">
+          <h1><i class="fa fa-wrench"></i> Operações</h1>
+        </div>
 
-<!--
+        <div class="task-actions">
+          <%= link_to 'Adicionar ação', new_task_path(), class: "btn-md btn-edit" %>
+        </div>
+      </div>
 
+      <div class="box">
+        <div class="title">
+          <h1><i class="fa fa-bar-chart"></i> Estatísticas</h1>
+        </div>
 
-<div class="row chose-city">
-  <div class="col-sm-12">
-    <select class="chose-city-select">
-      <option>Jaraguá do Sul</option>
-      <option>Pomerode</option>
-      <option>Guaramirim</option>
-      <option>Joinville</option>
-      <option>Massaranduba</option>
-    </select>
-  </div>
-</div>
+        <div class="task-statistics">
+          <ul>
+            <li>
+              <ul class="task-statistics-details">
+                <li>
+                  <div class="circle-o">
+                    <p><%= Task.total_tasks_not_expired %></p>
+                  </div>
+                </li>
+                <li>
+                  <p class="statistic-info">ações a expirar</p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <ul class="task-statistics-details">
+                <li>
+                  <div class="circle-o">
+                    <p><%= Task.total_tasks_expired %></p>
+                  </div>
+                </li>
+                <li>
+                  <p class="statistic-info">ações expiradas</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
 
-<div class="row list-task">
-  <div class="col-sm-12">
-    <div class="tasks-grid">
-      <table class="table">
-        <tr>
-          <td style="width: 15%;">Ação</td>
-          <td style="width: 15%;">Expira em</td>
-          <td style="width: 15%;">Cidade</td>
-          <td style="width: 15%;">Criado em</td>
-          <td style="width: 15%;">Criado por</td>
-          <td style="width: 25%;"></td>
-        </tr>
-
-        <% @tasks.each do |task| %>
-          <tr class="content-task">
-            <td><%= task.title %></td>
-            <td><%= distance_of_time_in_words(Date.today, task.expires_on) %></td>
-            <td><%= task.city %></td>
-            <td><%= time_ago_in_words(task.created_at) %> atrás</td>
-            <td><p><%= image_tag "avatar.png", class: "avatar-box-waiting" %> <%= task.user.try(:name) %></p></td>
-            <td style="text-align: center;">
-              <%= link_to 'Ver detalhes', task_path(task), class: "btn-sm btn-info" %>
-              <%= link_to 'Participar', '#', class: "btn-sm btn-create", :"data-task-id" => "#{task.id}" %>
-              <%= link_to 'Compartilhar', share_task_path(task), class: "btn-sm btn-share" %>
-            </td>
-        <% end %>
-      </table>
     </div>
   </div>
 </div>
-
-<div class="row actions-task">
-  <div class="col-sm-12">
-    <%= link_to 'Adicionar uma nova ação', new_task_path(), class: "btn-add-new" %>
-  </div>
-</div> -->
-
-<!-- <h1>Listagem de tarefas</h1>
-
-<div class="content-actions">
-  <%= link_to 'Adicionar', new_task_path(), class: "btn btn-success" %>
-</div>
-
-<table class="table table-striped">
-  <tr>
-    <td>Descrição</td>
-    <td>Expira em</td>
-    <td>Endereço</td>
-    <td>Cidade</td>
-    <td>Estado</td>
-    <td>País</td>
-    <td>Criado em</td>
-    <td></td>
-  </tr>
-
-  <% @tasks.each do |task| %>
-    <tr>
-      <td><%= task.description %></td>
-      <td><%= task.expires_on %></td>
-      <td><%= task.address %></td>
-      <td><%= task.city %></td>
-      <td><%= task.province %></td>
-      <td><%= task.country %></td>
-      <td><%= task.created_at %></td>
-      <td>
-        <%= link_to 'Compartilhar', share_task_path(task), class: "btn btn-primary" %>
-        <%= link_to 'Editar', edit_task_path(task), class: "btn btn-primary" %>
-        <%= link_to 'Excluir',  task,  method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-danger" %>
-      </td>
-  <% end %>
-</table> -->

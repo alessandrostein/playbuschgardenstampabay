@@ -1,0 +1,70 @@
+<div class="dash">
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="box">
+        <div class="title">
+          <h1><i class="fa fa-star"></i></i> Últimas conquistas</h1>
+        </div>
+
+        <div class="wins">
+          <ul>
+            <% Merit::ActivityLog.where("action_id in (select id from merit_actions where user_id = '#{current_user.id}')").order('created_at desc').limit(1000).each do |action| %>
+              <li>
+                <div class="time">
+                  <p><i class="fa fa-clock-o"></i> <%= time_ago_in_words(action.created_at) %> atrás</p>
+                </div>
+                <ul class="win-details">
+                  <li>
+                    <div class="circle">
+                      <% if action.related_change_type == "Merit::Score::Point" %>
+                        <p>
+                          <% @merit_points = Merit::Score::Point.find(action.related_change_id) %>
+                          <%= @merit_points.num_points %>
+                        </p>
+                      <% else %>
+                        <p><i class="fa fa-trophy"></i></p>
+                      <% end %>
+                    </div>
+                  </li>
+                  <li>
+                    <% if action.related_change_type == "Merit::Score::Point" %>
+                      <p class="win-info">
+                        <%= Merit::Score.find(@merit_points.score_id).category %>
+                      </p>
+                    <% else %>
+                      <p class="win-info"><%= Merit::BadgesSash.find(action.related_change_id).badge.description %></p>
+                    <% end %>
+                  </li>
+                </ul>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="box">
+        <div class="title">
+          <h1><i class="fa fa-bar-chart"></i> Estatísticas</h1>
+        </div>
+
+        <div class="task-statistics">
+          <ul>
+            <li>
+              <ul class="task-statistics-details">
+                <li>
+                  <div class="circle-o">
+                    <p><%= current_user.total_wins %></p>
+                  </div>
+                </li>
+                <li>
+                  <p class="statistic-info">conquistas</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -17,6 +17,8 @@ Merit.setup do |config|
   # to retrieve :user_model_name object if no `:to` option is given. Default
   # is "current_#{user_model_name.downcase}".
   config.current_user_method = 'current_user'
+  config.add_observer 'ReputationChangeObserver'
+
 end
 
 Merit::Badge.create!(

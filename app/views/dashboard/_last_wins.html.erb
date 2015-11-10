@@ -10,47 +10,31 @@
         <div class="col-sm-2">
           <p>Posição</p>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-7">
           <p>Nome</p>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
           <p>Pontos</p>
         </div>
       </div>
 
-      <div class="row box-table">
-        <div class="col-sm-2 user-position">
-          <p>1</p>
+      <% Merit::Score.top_scored(limit: 3).each_with_index do |score, index| %>
+        <div class="row box-table">
+          <div class="col-sm-2 <%= 'user-position' if current_user.id.to_s == score['user_id'] %>">
+            <p><%= index + 1 %></p>
+          </div>
+          <div class="col-sm-7 <%= 'user-position' if current_user.id.to_s == score['user_id'] %>">
+            <p><%= image_tag "avatar.png", class: "avatar-sm" %> <%= User.find(score["user_id"]).name %></p>
+          </div>
+          <div class="col-sm-3 <%= 'user-position' if current_user.id.to_s == score['user_id'] %>">
+            <p><%= score["sum_points"] %></p>
+          </div>
         </div>
-        <div class="col-sm-6 user-position">
-          <p><%= image_tag "avatar.png", class: "avatar-sm" %> Alessandro</p>
-        </div>
-        <div class="col-sm-4 user-position">
-          <p>50 pontos</p>
-        </div>
-      </div>
+      <% end %>
 
-      <div class="row box-table">
-        <div class="col-sm-2">
-          <p>2</p>
-        </div>
-        <div class="col-sm-6">
-          <p><%= image_tag "avatar.png", class: "avatar-sm" %> Rubens</p>
-        </div>
-        <div class="col-sm-4">
-          <p>35 pontos</p>
-        </div>
-      </div>
-
-      <div class="row box-table">
-        <div class="col-sm-2">
-          <p>3</p>
-        </div>
-        <div class="col-sm-6">
-          <p><%= image_tag "avatar.png", class: "avatar-sm" %> Emiliano</p>
-        </div>
-        <div class="col-sm-4">
-          <p>5 pontos</p>
+      <div class="row box-table table-header">
+        <div class="col-sm-12">
+          <p style="text-align:center;"><%= link_to "<i class='fa fa-link'></i> Ver classificação completa".html_safe, ranking_path() %><p>
         </div>
       </div>
     </div>
@@ -63,54 +47,42 @@
 
     <div class="wins">
       <ul>
-        <li>
-          <div class="time">
-            <p><i class="fa fa-clock-o"></i> 10 segundos atrás</p>
-          </div>
-          <ul class="win-details">
-            <li>
-              <div class="circle">
-                <p><i class="fa fa-star"></i></p>
-              </div>
-            </li>
-            <li>
-              <p class="win-info">Você subiu de nível</p>
-            </li>
-          </ul>
-        </li>
-
-        <li>
-          <div class="time">
-            <p><i class="fa fa-clock-o"></i> 1 minuto atrás</p>
-          </div>
-          <ul class="win-details">
-            <li>
-              <div class="circle">
-                <p>5</p>
-              </div>
-            </li>
-            <li>
-              <p class="win-info">pontos por curtir uma publicação</p>
-            </li>
-          </ul>
-        </li>
-
-        <li>
-          <div class="time">
-            <p><i class="fa fa-clock-o"></i> 3 horas e 15 minutos atrás</p>
-          </div>
-          <ul class="win-details">
-            <li>
-              <div class="circle">
-                <p><i class="fa fa-trophy"></i></p>
-              </div>
-            </li>
-            <li>
-              <p class="win-info">Você recebeu uma recompensa</p>
-            </li>
-          </ul>
-        </li>
+        <% Merit::ActivityLog.where("action_id in (select id from merit_actions where user_id = '#{current_user.id}')").order('created_at desc').limit(5).each do |action| %>
+          <li>
+            <div class="time">
+              <p><i class="fa fa-clock-o"></i> <%= time_ago_in_words(action.created_at) %> atrás</p>
+            </div>
+            <ul class="win-details">
+              <li>
+                <div class="circle">
+                  <% if action.related_change_type == "Merit::Score::Point" %>
+                    <p>
+                      <% @merit_points = Merit::Score::Point.find(action.related_change_id) %>
+                      <%= @merit_points.num_points %>
+                    </p>
+                  <% else %>
+                    <p><i class="fa fa-trophy"></i></p>
+                  <% end %>
+                </div>
+              </li>
+              <li>
+                <% if action.related_change_type == "Merit::Score::Point" %>
+                  <p class="win-info">
+                    <%= Merit::Score.find(@merit_points.score_id).category %>
+                  </p>
+                <% else %>
+                  <p class="win-info"><%= Merit::BadgesSash.find(action.related_change_id).badge.description %></p>
+                <% end %>
+              </li>
+            </ul>
+          </li>
+        <% end %>
       </ul>
+    </div>
+    <div class="row box-table table-header">
+      <div class="col-sm-12">
+        <p style="text-align:center;"><%= link_to "<i class='fa fa-link'></i> Ver todas suas conquistas".html_safe, wins_path() %><p>
+      </div>
     </div>
   </div>
 </div>

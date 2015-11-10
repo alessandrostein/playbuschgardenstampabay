@@ -99,7 +99,7 @@
                             <%= comment.user.name %>
                           </p>
                         </div>
-                        <div class="col-sm-3 time time-right comments-header">
+                        <div class="col-sm-3 time comments-header">
                           <p>
                             <i class="fa fa-clock-o"></i>
                             <%= time_ago_in_words(comment.created_at) %> atrás
@@ -111,6 +111,13 @@
                   <div class="row box-comments">
                     <div class="">
                       <div class="col-sm-9 comments-body">
+
+                        <% if comment.good? %>
+                          <i class="fa fa-smile-o" style="color: green;"></i>
+                        <% else %>
+                          <i class="fa fa-frown-o" style="color: blue"></i>
+                        <% end %>
+
                         <%= comment.text %>
                       </div>
                     </div>
@@ -139,10 +146,65 @@
         </div>
       <% end %>
     </div>
-
-
-
     <div class="col-sm-4">
+      <div class="box">
+        <div class="title">
+          <h1><i class="fa fa-bar-chart"></i> Estatísticas</h1>
+        </div>
+
+        <div class="task-statistics">
+          <ul>
+            <li>
+              <ul class="task-statistics-details">
+                <li>
+                  <div class="circle-o">
+                    <p><%= Post.total_posts %></p>
+                  </div>
+                </li>
+                <li>
+                  <p class="statistic-info">publicações</p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <ul class="task-statistics-details">
+                <li>
+                  <div class="circle-o">
+                    <p><%= current_user.posts.count %></p>
+                  </div>
+                </li>
+                <li>
+                  <p class="statistic-info">publicações feita por mim</p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <ul class="task-statistics-details">
+                <li>
+                  <div class="circle-o">
+                    <p><%= current_user.likes.count %></p>
+                  </div>
+                </li>
+                <li>
+                  <p class="statistic-info">curtidas feita por mim</p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <ul class="task-statistics-details">
+                <li>
+                  <div class="circle-o">
+                    <p><%= current_user.comments.count %></p>
+                  </div>
+                </li>
+                <li>
+                  <p class="statistic-info">comentários feitos por mim</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
 
     </div>
   </div>
