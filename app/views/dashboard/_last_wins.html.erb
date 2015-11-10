@@ -18,20 +18,26 @@
         </div>
       </div>
 
-      <%= Merit::Score.top_scored(limit: 3).each_with_index do |score, index| %>
+      <% Merit::Score.top_scored(limit: 3).each_with_index do |score, index| %>
         <div class="row box-table">
-          <div class="col-sm-2 <%= 'user-position' if current_user.id == score[:user_id] %>">
+          <div class="col-sm-2 <%= 'user-position' if current_user.id.to_s == score['user_id'] %>">
             <p><%= index + 1 %></p>
           </div>
-          <div class="col-sm-7 <%= 'user-position' if current_user.id == score[:user_id] %>">
+          <div class="col-sm-7 <%= 'user-position' if current_user.id.to_s == score['user_id'] %>">
             <p><%= image_tag "avatar.png", class: "avatar-sm" %> <%= User.find(score["user_id"]).name %></p>
           </div>
-          <div class="col-sm-3 <%= 'user-position' if current_user.id == score[:user_id] %>">
+          <div class="col-sm-3 <%= 'user-position' if current_user.id.to_s == score['user_id'] %>">
             <p><%= score["sum_points"] %></p>
           </div>
         </div>
       <% end %>
-    </div>      
+
+      <div class="row box-table table-header">
+        <div class="col-sm-12">
+          <p style="text-align:center;"><%= link_to "<i class='fa fa-link'></i> Ver classificação completa".html_safe, ranking_path() %><p>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="box">
@@ -73,61 +79,10 @@
         <% end %>
       </ul>
     </div>
+    <div class="row box-table table-header">
+      <div class="col-sm-12">
+        <p style="text-align:center;"><%= link_to "<i class='fa fa-link'></i> Ver todas suas conquistas".html_safe, wins_path() %><p>
+      </div>
+    </div>
   </div>
 </div>
-
-<!-- <div class="wins">
-  <ul>
-    <li>
-      <div class="time">
-        <p><i class="fa fa-clock-o"></i> 10 segundos atrás</p>
-      </div>
-      <ul class="win-details">
-        <li>
-          <div class="circle">
-            <p><i class="fa fa-star"></i></p>
-          </div>
-        </li>
-        <li>
-          <p class="win-info">Você subiu de nível</p>
-        </li>
-      </ul>
-    </li>
-
-    <li>
-      <div class="time">
-        <p><i class="fa fa-clock-o"></i> 1 minuto atrás</p>
-      </div>
-      <ul class="win-details">
-        <li>
-          <div class="circle">
-            <p>5</p>
-          </div>
-        </li>
-        <li>
-          <p class="win-info">pontos por curtir uma publicação</p>
-        </li>
-      </ul>
-    </li>
-
-    <li>
-      <div class="time">
-        <p><i class="fa fa-clock-o"></i> 3 horas e 15 minutos atrás</p>
-      </div>
-      <ul class="win-details">
-        <li>
-          <div class="circle">
-            <p><i class="fa fa-trophy"></i></p>
-          </div>
-        </li>
-        <li>
-          <p class="win-info">Você recebeu uma recompensa</p>
-        </li>
-      </ul>
-    </li>
-  </ul>
-</div>
-</div>
-</div>
-<!-- #<Merit::ActivityLog id: 94, action_id: 94, related_change_type: "Merit::Score::Point",
-related_change_id: 94, description: "Você recebeu 10 pontos", created_at: "2015-11-08 20:04:40">] -->

@@ -1,83 +1,12 @@
 <div class="dash">
   <div class="row">
     <div class="col-sm-8">
-      <div class="row">
-        <%= render 'actions_pending' %>
-      </div>
-      <div class="row">
-        <%= render 'actions_waiting' %>
-      </div>
-      <div class="row">
-        <%= render 'actions_requiring_approval' %>
-      </div>
+      <%= render 'actions_pending' %>
+      <%= render 'actions_waiting' %>
+      <%= render 'actions_requiring_approval' %>
     </div>
     <div class="col-sm-4">
       <%= render 'last_wins' %>
     </div>
   </div>
 </div>
-
-
-<!-- <div class="local">
-  <form class="form-horizontal">
-    <div class="form-group">
-      <label class="col-sm-2 control-label">Você está em</label>
-      <div class="col-sm-3">
-        <select class="form-control chose-city">
-          <option>Jaraguá do Sul</option>
-          <option>Pomerode</option>
-          <option>Guaramirim</option>
-          <option>Joinville</option>
-          <option>Massaranduba</option>
-        </select>
-      </div>
-    </div>
-  </form>
-</div>
-
-<div class="actions-next-to-you">
-  <h1>Oportunidades próximo de você</h1>
-
-</div>
-
-
-
-<div class="achievements">
-  <table class="table">
-    <tr>
-      <td>
-        Ranking
-      </td>
-      <td>
-        Últimas conquistas
-      </td>
-    <tr>
-
-    <tr>
-      <td>
-        <div class="ranking">
-          <ul>
-            <%= Merit::Score.top_scored.each do |score| %>
-              <li>Usuario: <%= score["user_id"]%> Pontos: <%= score["sum_points"] %></li>
-            <% end %>
-          </ul>
-        </div>
-      </td>
-      <td>
-        <div class="badges">
-          <ul>
-            <li><span class="badge badge-warning">12</span></li>
-            <li><span class="badge badge-warning">12</span></li>
-            <li><span class="badge badge-warning">12</span></li>
-            <li><span class="badge badge-warning">12</span></li>
-          <ul>
-        </div>
-      </td>
-    </tr>
-  </table>
-</div>
-
-<div class="opportunities">
-  <h2>Oportunidades</h2>
-  <p>Nenhuma oportunidade encontrada</p>
-</div> -->

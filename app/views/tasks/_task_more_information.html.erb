@@ -19,7 +19,7 @@
       </div>
       <div class="task-actions">
         <%= link_to 'Finalizar', '#', class: "btn-md btn-create cta-confirmate", :"data-action-id" => "#{@task.actions.where(user_id: current_user.id).first.id}" %>
-        <span class="info-points">+ 10 pontos</span>
+        <span class="info-points">+ 15 pontos</span>
       </div>
     </div>
   <% elsif current_user.is_in_action_requiring_approval?(@task.id) %>

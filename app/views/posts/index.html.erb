@@ -73,7 +73,7 @@
                 <% end %>
 
                 <i class="fa fa-share-square-o ico-shares"></i></i>
-                <% if post.task.total_share > 0 %>                  
+                <% if post.task.total_share > 0 %>
                   <span class="n-shares"><%= post.task.total_share %></span>
                 <% end %>
               </div>
@@ -146,10 +146,65 @@
         </div>
       <% end %>
     </div>
-
-
-
     <div class="col-sm-4">
+      <div class="box">
+        <div class="title">
+          <h1><i class="fa fa-bar-chart"></i> Estatísticas</h1>
+        </div>
+
+        <div class="task-statistics">
+          <ul>
+            <li>
+              <ul class="task-statistics-details">
+                <li>
+                  <div class="circle-o">
+                    <p><%= Post.total_posts %></p>
+                  </div>
+                </li>
+                <li>
+                  <p class="statistic-info">publicações</p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <ul class="task-statistics-details">
+                <li>
+                  <div class="circle-o">
+                    <p><%= current_user.posts.count %></p>
+                  </div>
+                </li>
+                <li>
+                  <p class="statistic-info">publicações feita por mim</p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <ul class="task-statistics-details">
+                <li>
+                  <div class="circle-o">
+                    <p><%= current_user.likes.count %></p>
+                  </div>
+                </li>
+                <li>
+                  <p class="statistic-info">curtidas feita por mim</p>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <ul class="task-statistics-details">
+                <li>
+                  <div class="circle-o">
+                    <p><%= current_user.comments.count %></p>
+                  </div>
+                </li>
+                <li>
+                  <p class="statistic-info">comentários feitos por mim</p>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
 
     </div>
   </div>

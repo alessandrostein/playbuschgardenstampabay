@@ -169,14 +169,19 @@ footer .row ul li {
 .menu-right {
   float: left;
   width: 22%;
+  text-align: right;
 }
 
 .menu-right ul li {
-  font-family: "Abel";
+  font-family: 'Open Sans', sans-serif;
   font-size: 14px;
-  color: #1D1D1D;
+  color: #FFF;
   margin-top: 10px;
   margin-left: 10px;
+}
+
+.menu-right ul li a{
+  color: #FFF;
 }
 
 /*.last-wins, .task-more-information {
@@ -214,7 +219,7 @@ footer .row ul li {
   padding-left: 5px;
 }
 
-.last-wins .circle {
+.circle {
   float: left;
   height: 40px;
   width: 40px;
@@ -224,7 +229,7 @@ footer .row ul li {
   overflow: hidden;
 }
 
-.last-wins .circle p {
+.circle p {
   text-align: center;
   margin-top: 3px;
   color: #55B771;
@@ -233,7 +238,7 @@ footer .row ul li {
   font-size: 20px;
 }
 
-.last-wins .wins-rows {
+.wins-rows {
   padding: 10px;
 }
 
@@ -358,12 +363,12 @@ footer .row ul li {
   padding: 0 20px 20px 20px;
 }
 
-.task-statistics, .last-wins .wins {
+.task-statistics, .wins {
   text-align: left;
   padding: 0 15px 15px 15px;
 }
 
-.task-statistics ul, .last-wins .wins ul {
+.task-statistics ul, .wins ul {
   padding-left: 0px;
 }
 
@@ -374,7 +379,7 @@ footer .row ul li {
   margin-bottom: 15px;
 }
 
-.task-statistics-details .statistic-info, .last-wins .wins .win-details .win-info {
+.task-statistics-details .statistic-info, .wins .win-details .win-info {
   color: #868480;
   font-family: "Open Sans",sans-serif;
   font-size: 12px;

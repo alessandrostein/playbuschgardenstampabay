@@ -29,4 +29,12 @@ class Task < ActiveRecord::Base
     self.posts.count
   end
 
+  def self.total_tasks_not_expired
+    Task.where("expires_on > ?", Date.today).count
+  end
+
+  def self.total_tasks_expired
+    Task.where("expires_on < ?", Date.today).count
+  end
+
 end

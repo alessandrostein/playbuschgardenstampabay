@@ -11,6 +11,12 @@ class DashboardController < InheritedResources::Base
   def index
   end
 
+  def ranking
+  end
+
+  def wins
+  end
+
   def check_rank_rules
     Merit::RankRules.new.check_rank_rules
   end

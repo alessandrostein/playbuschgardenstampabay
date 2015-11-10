@@ -28,7 +28,7 @@
         <p><%= action.task.try(:title) %></p>
       </div>
       <div class="col-sm-2">
-        <p><%= link_to 'Ver detalhes', "#", class: "btn-sm btn-info" %></p>
+        <p><%= link_to 'Ver detalhes', task_path(action.task), class: "btn-sm btn-info" %></p>
       </div>
       <div class="col-sm-2">
         <p><%= distance_of_time_in_words(Date.today, action.task.try(:expires_on)) %></p>

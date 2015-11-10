@@ -32,7 +32,12 @@ class User < ActiveRecord::Base
     self.actions.where(status: 2, task_id: task_id).present?
   end
 
-    #:merit_score_points).select("users.*").
-    #group('merit_score_points.score_id, users.score_id').order("sum(merit_score_points.merit_score_points) DESC").limit(25) }
+  def self.total_users
+    User.count
+  end
+
+  def total_wins
+    Merit::ActivityLog.where("action_id in (select id from merit_actions where user_id = '#{self.id}')").count
+  end
 
 end
