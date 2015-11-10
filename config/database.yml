@@ -82,6 +82,6 @@ test:
 #
 production:
   <<: *default
-  database: playbuschgardenstampabay_production
-  username: playbuschgardenstampabay
-  password: <%= ENV['PLAYBUSCHGARDENSTAMPABAY_DATABASE_PASSWORD'] %>
+  database: mybestworld
+  username: admin5zlpcg5
+  password: kvEQdhW8Wf-P # Temporary password <%= ENV['PLAYBUSCHGARDENSTAMPABAY_DATABASE_PASSWORD'] %> 
