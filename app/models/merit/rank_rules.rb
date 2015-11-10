@@ -16,23 +16,23 @@ module Merit
 
     def initialize
       set_rank :level => 1, :to => User.all do |user|
-        user.points > 1 && user.points < 10
+        user.points > 0 && user.points < 50
       end
 
       set_rank :level => 2, :to => User.all do |user|
-        user.points > 10 && user.points < 20
+        user.points > 50 && user.points < 100
       end
 
       set_rank :level => 3, :to => User.all do |user|
-        user.points > 20 && user.points < 30
+        user.points > 100 && user.points < 200
       end
 
       set_rank :level => 4, :to => User.all do |user|
-        user.points > 30 && user.points < 40
+        user.points > 200 && user.points < 400
       end
 
       set_rank :level => 5, :to => User.all do |user|
-        user.points > 40
+        user.points > 400
       end
     end
   end

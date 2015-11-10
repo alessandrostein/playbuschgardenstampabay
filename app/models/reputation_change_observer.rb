@@ -1,7 +1,7 @@
 class ReputationChangeObserver
   def update(changed_data)
 
-    byebug
+    # byebug
     if changed_data[:merit_object].is_a?Merit::Score::Point
       if Merit::Score.find(changed_data[:merit_object].score_id).try(:category).present?
         description = Merit::Score.find(changed_data[:merit_object].score_id).category

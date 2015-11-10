@@ -36,7 +36,7 @@ SQL
       results.map do |h|
         h.keep_if { |k, v| (k == alias_id_column) || (k == 'sum_points') }
       end
-      results
+      results.to_hash
     end
   end
 end

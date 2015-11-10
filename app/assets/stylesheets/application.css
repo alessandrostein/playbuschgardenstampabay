@@ -200,7 +200,7 @@ footer .row ul li {
   margin-top: 5px;
   color: rgb(100, 183, 254);
   font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
+  font-size: 12px;
   text-align: left;
   padding-left: 5px;
 }
@@ -216,8 +216,8 @@ footer .row ul li {
 
 .last-wins .circle {
   float: left;
-  height: 45px;
-  width: 45px;
+  height: 40px;
+  width: 40px;
   border-radius: 43px;
   background-color: #F2F0EA;
   border: 2px solid #FFF;
@@ -230,11 +230,11 @@ footer .row ul li {
   color: #55B771;
   font-family: "Open Sans",Arial,sans-serif;
   font-weight: bold;
-  font-size: 22px;
+  font-size: 20px;
 }
 
 .last-wins .wins-rows {
-  padding: 15px;
+  padding: 10px;
 }
 
 .task-main {
@@ -360,7 +360,7 @@ footer .row ul li {
 
 .task-statistics, .last-wins .wins {
   text-align: left;
-  padding: 0 20px 20px 20px;
+  padding: 0 15px 15px 15px;
 }
 
 .task-statistics ul, .last-wins .wins ul {
@@ -377,7 +377,7 @@ footer .row ul li {
 .task-statistics-details .statistic-info, .last-wins .wins .win-details .win-info {
   color: #868480;
   font-family: "Open Sans",sans-serif;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .info-points {
