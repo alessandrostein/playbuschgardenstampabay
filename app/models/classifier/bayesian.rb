@@ -17,7 +17,7 @@ class Classifier::Bayesian
   end
 
   def trainning
-    @bayesian.train_good "Concerteza eu irei ajudar, todos precisam de ajuda"
+    @bayesian.train_good "Com certeza eu irei ajudar, todos precisam de ajuda"
     @bayesian.train_good "Vamos todos fazer nossa parte"
     @bayesian.train_good "Pode contar comigo, irei ajudar nesta ação"
     @bayesian.train_good "Vou compartilhar esta ação, para que mais pessoas possam ver"

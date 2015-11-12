@@ -137,11 +137,11 @@ $(function () {
     $(".show-comments").show('slow');
   });
 
-  $('.btn-like').bind('ajax:complete', function() {
+  $(document).on('ajax:success', '.btn-like', function(e, data, status, xhr){
     Turbolinks.visit('/posts');
   });
-
-  $('.btn-unlike').bind('ajax:complete', function() {
+  
+  $(document).on('ajax:success', '.btn-unlike', function(e, data, status, xhr){
     Turbolinks.visit('/posts');
   });
 
