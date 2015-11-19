@@ -13,26 +13,16 @@ module Merit
     include Merit::PointRulesMethods
 
     def initialize
-      score 1, :on => ['users#create'], category: "ponto de Boas Vindas"
-
-      score 3, :on => ['posts#like'], category: "pontos por curtir uma publicação"
-      score -3, :on => ['posts#unlike'], category: "pontos por descurtir uma publicação"
-      score 3, :on => ['comments#create'], category: "pontos por comentar uma publicação"
-
-      score 5, :on => ['tasks#share'], category: "pontos por compartilhar uma publicação"
-
-      score 10, :on => ['actions#participate'], category: "pontos por participar de uma ação"
-      score 15, :on => ['actions#confirmate'], category: "pontos por finalizar uma ação"
-
-
-      # score 15, :on => 'reviews#create', :to => [:reviewer, :reviewed]
-      #
-      # score 20, :on => [
-      #   'comments#create',
-      #   'photos#create'
-      # ]
-      #
-      # score -10, :on => 'comments#destroy'
+      score 5, :on => ['posts#like'],
+        category: "pontos por curtir uma publicação"
+      score 5, :on => ['comments#create'],
+        category: "pontos por comentar uma publicação"
+      score 10, :on => ['tasks#share'],
+        category: "pontos por compartilhar uma publicação"
+      score 10, :on => ['actions#participate'],
+        category: "pontos por participar de uma ação"
+      score 15, :on => ['actions#confirmate'],
+        category: "pontos por finalizar uma ação"
     end
   end
 end

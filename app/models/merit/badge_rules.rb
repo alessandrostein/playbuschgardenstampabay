@@ -21,35 +21,118 @@ module Merit
     include Merit::BadgeRulesMethods
 
     def initialize
-      grant_on 'devise/registrations#create', badge_id: 1, to: :action_user
-      grant_on 'tasks#share', badge_id: 3, to: @task
-      grant_on 'comments#create', badge_id: 4, to: @comment
-      grant_on 'actions#participate', badge_id: 6, to: @action
-      grant_on 'actions#confirmate', badge_id: 7, to: @action
+      # Badges for social
+      grant_on 'tasks#share', badge: 'social_1', to: @task do |task|
+        score_social_points_is_true(task.user, 100)
+      end
 
-      # If it creates user, grant badge
-      # Should be "current_user" after registration for badge to be granted.
-      # Find badge by badge_id, badge_id takes presidence over badge
-      #  grant_on 'users#create', badge_id: 1, to: :action_user
+      grant_on 'comments#create', badge: 'social_1', to: @comment do |comment|
+        score_social_points_is_true(comment.user, 100)
+      end
 
-      # If it has 10 comments, grant commenter-10 badge
-      # grant_on 'comments#create', badge: 'commenter', level: 10 do |comment|
-      #   comment.user.comments.count == 10
-      # end
+      grant_on 'posts#like', badge: 'social_1', to: @post do |post|
+        score_social_points_is_true(post.user, 100)
+      end
 
-      # If it has 5 votes, grant relevant-commenter badge
-      # grant_on 'comments#vote', badge: 'relevant-commenter',
-      #   to: :user do |comment|
-      #
-      #   comment.votes.count == 5
-      # end
+      grant_on 'tasks#share', badge: 'social_2', to: @task do |task|
+        score_social_points_is_true(task.user, 200)
+      end
 
-      # Changes his name by one wider than 4 chars (arbitrary ruby code case)
-      # grant_on 'registrations#update', badge: 'autobiographer',
-      #   temporary: true, model_name: 'User' do |user|
-      #
-      #   user.name.length > 4
-      # end
+      grant_on 'comments#create', badge: 'social_2', to: @comment do |comment|
+        score_social_points_is_true(comment.user, 200)
+      end
+
+      grant_on 'posts#like', badge: 'social_2', to: @post do |post|
+        score_social_points_is_true(post.user, 200)
+      end
+
+      grant_on 'tasks#share', badge: 'social_3', to: @task do |task|
+        score_social_points_is_true(task.user, 300)
+      end
+
+      grant_on 'comments#create', badge: 'social_3', to: @comment do |comment|
+        score_social_points_is_true(comment.user, 300)
+      end
+
+      grant_on 'posts#like', badge: 'social_3', to: @post do |post|
+        score_social_points_is_true(post.user, 300)
+      end
+
+      grant_on 'tasks#share', badge: 'social_4', to: @task do |task|
+        score_social_points_is_true(task.user, 400)
+      end
+
+      grant_on 'comments#create', badge: 'social_4', to: @comment do |comment|
+        score_social_points_is_true(comment.user, 400)
+      end
+
+      grant_on 'posts#like', badge: 'social_4', to: @post do |post|
+        score_social_points_is_true(post.user, 400)
+      end
+
+      grant_on 'tasks#share', badge: 'social_5', to: @task do |task|
+        score_social_points_is_true(task.user, 500)
+      end
+
+      grant_on 'comments#create', badge: 'social_5', to: @comment do |comment|
+        score_social_points_is_true(comment.user, 500)
+      end
+
+      grant_on 'posts#like', badge: 'social_5', to: @post do |post|
+        score_social_points_is_true(post.user, 500)
+      end
+
+      # Badges for volunter
+      grant_on 'actions#confirmate', badge: 'voluntario_1', to: @action do |action|
+        score_volunter_points_is_true(action.user, 100)
+      end
+
+      grant_on 'actions#participate', badge: 'voluntario_1', to: @action do |action|
+        score_volunter_points_is_true(action.user, 100)
+      end
+
+      grant_on 'actions#confirmate', badge: 'voluntario_2', to: @action do |action|
+        score_volunter_points_is_true(action.user, 200)
+      end
+
+      grant_on 'actions#participate', badge: 'voluntario_2', to: @action do |action|
+        score_volunter_points_is_true(action.user, 200)
+      end
+
+      grant_on 'actions#confirmate', badge: 'voluntario_3', to: @action do |action|
+        score_volunter_points_is_true(action.user, 300)
+      end
+
+      grant_on 'actions#participate', badge: 'voluntario_3', to: @action do |action|
+        score_volunter_points_is_true(action.user, 300)
+      end
+
+      grant_on 'actions#confirmate', badge: 'voluntario_4', to: @action do |action|
+        score_volunter_points_is_true(action.user, 400)
+      end
+
+      grant_on 'actions#participate', badge: 'voluntario_4', to: @action do |action|
+        score_volunter_points_is_true(action.user, 400)
+      end
+
+      grant_on 'actions#confirmate', badge: 'voluntario_5', to: @action do |action|
+        score_volunter_points_is_true(action.user, 500)
+      end
+
+      grant_on 'actions#participate', badge: 'voluntario_5', to: @action do |action|
+        score_volunter_points_is_true(action.user, 500)
+      end
+    end
+
+    def score_social_points_is_true?(user, num_points)
+      user.score_points.where("category in ('pontos por curtir uma publicação',
+        'pontos por comentar uma publicação', 'pontos por compartilhar uma publicação')")
+        .sum(:num_points) >= num_points
+    end
+
+    def score_volunter_points_is_true?(user, num_points)
+      user.score_points.where("category in ('pontos por participar de uma ação',
+        'pontos por finalizar uma ação')").sum(:num_points) >= num_points
     end
   end
 end
