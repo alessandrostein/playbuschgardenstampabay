@@ -19,9 +19,14 @@ gem 'closure_tree', '5.2.0'
 gem 'classifier-reborn'
 gem 'whenever', :require => false
 
-gem 'rails-assets-bootstrap', source: 'https://rails-assets.org'
-gem 'rails-assets-fontawesome', source: 'https://rails-assets.org'
-gem 'rails-assets-sweetalert', source: 'https://rails-assets.org'
+# gem 'rails-assets-bootstrap', source: 'https://rails-assets.org'
+# gem 'rails-assets-fontawesome', source: 'https://rails-assets.org'
+# gem 'rails-assets-sweetalert', source: 'https://rails-assets.org'
+gem 'sweet-alert'
+gem "font-awesome-rails"
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
 
 group :development, :test do
   gem 'byebug'
