@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   end
 
   resources :comments, only: [:index, :create]
+  
   get '/comments/new/(:parent_id)', to: 'comments#new', as: :new_comment
 
   match '/actions/:task_id/participate' => 'actions#participate', :via => [:post]

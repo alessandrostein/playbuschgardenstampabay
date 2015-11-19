@@ -15,24 +15,20 @@ module Merit
     include Merit::RankRulesMethods
 
     def initialize
+      set_rank :level => 0, :to => User.all do |user|
+        user.points > 0 && user.points < 250
+      end
+
       set_rank :level => 1, :to => User.all do |user|
-        user.points > 0 && user.points < 50
+          user.points >= 250 && user.points < 500
       end
 
       set_rank :level => 2, :to => User.all do |user|
-        user.points > 50 && user.points < 100
+        user.points >= 500 && user.points < 1000
       end
 
       set_rank :level => 3, :to => User.all do |user|
-        user.points > 100 && user.points < 200
-      end
-
-      set_rank :level => 4, :to => User.all do |user|
-        user.points > 200 && user.points < 400
-      end
-
-      set_rank :level => 5, :to => User.all do |user|
-        user.points > 400
+        user.points >= 1000
       end
     end
   end

@@ -18,82 +18,56 @@ Merit.setup do |config|
   # is "current_#{user_model_name.downcase}".
   config.current_user_method = 'current_user'
 end
-
 Merit::Badge.create!(
   id: 1,
-  name: "new_user",
-  description: "Pelo seu interesse, você merece um prêmio.",
-  custom_fields: { category: :site, difficulty: :easy }
+  name: "social_1",
+  description: "Você foi recompensado com 1 estrela"
 )
-
 Merit::Badge.create!(
   id: 2,
-  name: "add_avatar",
-  description: "Adicionou seu próprio avatar.",
-  custom_fields: { category: :site, difficulty: :easy }
+  name: "social_2",
+  description: "Você foi recompensado com 2 estrelas"
 )
-
 Merit::Badge.create!(
   id: 3,
-  name: "publish_timeline",
-  description: "Publicou na sua TimeLine.",
-  custom_fields: { category: :site, difficulty: :easy }
+  name: "social_3",
+  description: "Você foi recompensado com 3 estrelas"
 )
-
 Merit::Badge.create!(
   id: 4,
-  name: "comment_timeline",
-  description: "Comentou uma publicação na TimeLine.",
-  custom_fields: { category: :site, difficulty: :easy }
+  name: "social_4",
+  description: "Você foi recompensado com 4 estrelas"
 )
-
 Merit::Badge.create!(
   id: 5,
-  name: "create_oportunity",
-  description: "Criou uma nova oportunidade.",
-  custom_fields: { category: :site, difficulty: :easy }
+  name: "social_5",
+  description: "Você recebeu o trófeu Social. Parabéns!"
 )
 
 Merit::Badge.create!(
   id: 6,
-  name: "participate_oportunity",
-  description: "Se candidatou a uma oportunidade.",
-  custom_fields: { category: :help, difficulty: :normal }
+  name: "voluntario_1",
+  description: "Você foi recompensado com 1 estrela"
 )
-
 Merit::Badge.create!(
   id: 7,
-  name: "approved_oportunity",
-  description: "Conclui uma oportunidade.",
-  custom_fields: { category: :help, difficulty: :normal }
+  name: "voluntario_2",
+  description: "Você foi recompensado com 2 estrelas"
 )
-
 Merit::Badge.create!(
   id: 8,
-  name: "five_approved_oportunity",
-  description: "Conclui 5 oportunidades.",
-  custom_fields: { category: :help, difficulty: :hard }
+  name: "voluntario_3",
+  description: "Você foi recompensado com 3 estrelas"
 )
-
 Merit::Badge.create!(
   id: 9,
-  name: "one_month_user",
-  description: "Faz parte a 1 mês.",
-  custom_fields: { category: :site, difficulty: :normal }
+  name: "voluntario_4",
+  description: "Você foi recompensado com 4 estrelas"
 )
-
 Merit::Badge.create!(
   id: 10,
-  name: "one_year_user",
-  description: "Faz parte a 1 ano.",
-  custom_fields: { category: :site, difficulty: :hard }
-)
-
-Merit::Badge.create!(
-  id: 11,
-  name: "share_social",
-  description: "Compartilhou uma oportunidade nas Redes Socias.",
-  custom_fields: { category: :site, difficulty: :easy }
+  name: "voluntario_5",
+  description: "Você recebeu o trófeu Voluntário. Parabéns!"
 )
 
 # Create application badges (uses https://github.com/norman/ambry)
