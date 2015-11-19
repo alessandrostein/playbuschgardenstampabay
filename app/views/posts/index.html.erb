@@ -130,6 +130,7 @@
           <div class="row box-table">
             <div class="box-actions">
               <div class="col-sm-12">
+
                 <%= simple_form_for(post.comments.build, url: comments_path,
                   format: :json, remote: true, method: :post) do |f| %>
 
@@ -137,8 +138,11 @@
 
                   <input name="comment[post_id]" type="hidden" value="<%= post.id %>">
                   <input name="comment[user_id]" type="hidden" value="<%= current_user.id %>">
-                  <input type="text" name="comment[text]" placeholder="Deixe o seu comentário" class="in-comment"></input>
+                  <input type="text" name="comment[text]" placeholder="Deixe o seu comentário"
+                    class="in-comment"></input>
                 <% end %>
+
+
               </div>
             </div>
           </div>
