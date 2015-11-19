@@ -1,0 +1,111 @@
+<% if @task.task_is_own?(current_user.id) %>
+  <div class="box">
+    <div class="title">
+      <h1><i class="fa fa-wrench"></i> Operações</h1>
+    </div>
+
+    <div class="task-actions">
+      <%= link_to 'Alterar ação', edit_task_path(@task), class: "btn-md btn-edit" %>
+      <%= link_to 'Remover ação',  @task,  method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn-md btn-remove" %>
+    </div>
+  </div>
+<% end %>
+
+<% if current_user.is_in_action?(@task.id) %>
+  <% if current_user.is_in_action_pending?(@task.id) %>
+    <div class="box">
+      <div class="title">
+        <h1><i class="fa fa-thumbs-o-up"></i> Finalizar a ação</h1>
+      </div>
+      <div class="task-actions">
+        <%= link_to 'Finalizar', '#', class: "btn-md btn-create cta-confirmate", :"data-action-id" => "#{@task.actions.where(user_id: current_user.id).first.id}" %>
+        <span class="info-points">+ 15 pontos</span>
+      </div>
+    </div>
+  <% elsif current_user.is_in_action_requiring_approval?(@task.id) %>
+    <div class="box">
+      <div class="title">
+        <h1><i class="fa fa-clock-o "></i> Aguardando aprovação</h1>
+      </div>
+      <div class="task-actions">
+        <%= link_to 'Aguardando', '#', class: "btn-md btn-info btn-disabled" %>
+      </div>
+    </div>
+  <% elsif current_user.is_in_action_approved?(@task.id) %>
+  <div class="box">
+    <div class="title">
+      <h1><i class="fa fa-thumbs-o-up"></i> Ação já realizada</h1>
+    </div>
+    <div class="task-actions">
+      <%= link_to 'Você já finalizou esta ação', '#', class: "btn-md btn-create btn-disabled" %>
+    </div>
+  </div>
+  <% end %>
+  <% else %>
+  <div class="box">
+    <div class="title">
+      <h1><i class="fa fa-thumbs-o-up"></i> Participar da ação</h1>
+    </div>
+    <div class="task-actions">
+      <%= link_to 'Participar', '#', class: "btn-md btn-create cta-participate", :"data-task-id" => "#{@task.id}" %>
+      <span class="info-points">+ 10 pontos</span>
+    </div>
+  </div>
+<% end %>
+
+<div class="box">
+  <div class="title">
+    <h1><i class="fa fa-share"></i> Compartilhar ação</h1>
+  </div>
+  <div class="task-actions">
+    <%= link_to 'Compartilhar', '#', :'data-task-id' => @task.id, :'data-task-title' => @task.title, class: "btn-md btn-share" %>
+    <span class="info-points">+ 5 pontos</span>
+  </div>
+</div>
+
+<div class="box">
+  <div class="title">
+    <h1><i class="fa fa-bar-chart"></i> Estatísticas</h1>
+  </div>
+
+  <div class="task-statistics">
+    <ul>
+      <li>
+        <ul class="task-statistics-details">
+          <li>
+            <div class="circle-o">
+              <p><%= @task.total_with_action_pending %></p>
+            </div>
+          </li>
+          <li>
+            <p class="statistic-info">participando desta ação</p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <ul class="task-statistics-details">
+          <li>
+            <div class="circle-o">
+              <p><%= @task.total_with_action_waiting %></p>
+            </div>
+          </li>
+          <li>
+            <p class="statistic-info">aguardando aprovação desta ação</p>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <ul class="task-statistics-details">
+          <li>
+            <div class="circle-o">
+              <p><%= @task.total_with_action_termimated %></p>
+            </div>
+          </li>
+          <li>
+            <p class="statistic-info">finalizaram esta ação</p>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

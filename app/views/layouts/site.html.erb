@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Playbuschgardenstampabay</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="layout-home">
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+  <%= render "site/header" %>
+
+  <%= yield %>
+
+  <%= render "site/footer" %>
+  <%= render "devise/registrations/new" %>
+  <%= render "devise/sessions/new" %>
+</body>
+</html>
