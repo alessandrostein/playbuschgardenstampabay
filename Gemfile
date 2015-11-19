@@ -19,11 +19,9 @@ gem 'closure_tree', '5.2.0'
 gem 'classifier-reborn'
 gem 'whenever', :require => false
 
-source 'https://rails-assets.org' do
-  gem 'rails-assets-bootstrap'
-  gem 'rails-assets-fontawesome'
-  gem 'rails-assets-sweetalert'
-end
+gem 'rails-assets-bootstrap', source: 'https://rails-assets.org'
+gem 'rails-assets-fontawesome', source: 'https://rails-assets.org'
+gem 'rails-assets-sweetalert', source: 'https://rails-assets.org'
 
 group :development, :test do
   gem 'byebug'
