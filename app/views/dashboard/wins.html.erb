@@ -34,7 +34,9 @@
                         <%= Merit::Score.find(@merit_points.score_id).category %>
                       </p>
                     <% else %>
-                      <p class="win-info info-badge"><%= Merit::BadgesSash.find(action.related_change_id).badge.description %></p>
+                      <p class="win-info info-badge">
+                        <%= Merit::BadgesSash.find(action.related_change_id).badge.description %>
+                      </p>
                     <% end %>
                   </li>
                 </ul>
