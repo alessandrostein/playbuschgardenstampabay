@@ -16,7 +16,7 @@
 //= require turbolinks
 //= require bootstrap
 //= require actions
-//= require sweet-alert
+//= require sweetalert.min.js
 //= require_tree .
 
 //

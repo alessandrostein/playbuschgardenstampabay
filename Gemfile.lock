@@ -166,7 +166,6 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
-    sweet-alert (0.0.7)
     therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
       ref
@@ -221,7 +220,6 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   simple_form
   spring
-  sweet-alert
   therubyracer
   turbolinks
   twitter-bootstrap-rails

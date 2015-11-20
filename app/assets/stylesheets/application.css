@@ -14,7 +14,7 @@
  *= require tasks
  *= require posts
  *= require progressbar
- *= require sweet-alert
+ *= require sweetalert
  *= require_tree .
  *= require_self
  */
