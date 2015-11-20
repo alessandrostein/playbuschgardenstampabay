@@ -15,16 +15,18 @@
                 </div>
                 <ul class="win-details">
                   <li>
-                    <div class="circle">
-                      <% if action.related_change_type == "Merit::Score::Point" %>
-                        <p>
-                          <% @merit_points = Merit::Score::Point.find(action.related_change_id) %>
-                          <%= @merit_points.num_points %>
-                        </p>
-                      <% else %>
-                        <p><i class="fa fa-trophy"></i></p>
-                      <% end %>
-                    </div>
+                    <% if action.related_change_type == "Merit::Score::Point" %>
+                      <div class="circle">
+                          <p>
+                            <% @merit_points = Merit::Score::Point.find(action.related_change_id) %>
+                            <%= @merit_points.num_points %>
+                          </p>
+                      </div>
+                    <% else %>
+                      <div class="trophy">
+                        <p><%= image_tag("badges/#{Merit::BadgesSash.find(action.related_change_id).badge.name}.png") %></p>
+                      </div>
+                    <% end %>
                   </li>
                   <li>
                     <% if action.related_change_type == "Merit::Score::Point" %>
@@ -32,7 +34,7 @@
                         <%= Merit::Score.find(@merit_points.score_id).category %>
                       </p>
                     <% else %>
-                      <p class="win-info"><%= Merit::BadgesSash.find(action.related_change_id).badge.description %></p>
+                      <p class="win-info info-badge"><%= Merit::BadgesSash.find(action.related_change_id).badge.description %></p>
                     <% end %>
                   </li>
                 </ul>

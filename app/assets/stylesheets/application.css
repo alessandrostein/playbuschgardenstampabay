@@ -217,6 +217,15 @@ footer .row ul li {
   padding-left: 5px;
 }
 
+.trophy img {
+  height: 45px;
+  width: 45px;
+}
+
+.info-badge {
+  font-weight: bold;
+}
+
 .circle {
   float: left;
   height: 40px;
