@@ -27,10 +27,24 @@ defaults: &defaults
   <<: *<%= ENV['RAILS_DB'] || "sqlite" %>
 
 development:
-  <<: *defaults
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+  database: playbuschgardenstampabay_development
+  username: postgres
+  password: system
 
 test: &test
-  <<: *defaults
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: 5
+  database: playbuschgardenstampabay_test
+  username: postgres
+  password: system
 
 production:
   <<: *defaults
