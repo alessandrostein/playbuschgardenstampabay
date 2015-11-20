@@ -40,25 +40,22 @@
     </div>
 
     <% @points = current_user.points %>
-    <% if @points > 1 && @points < 50 %>
-      <% percent = (@points * 100) / 50 %>
+    <% if @points > 1 && @points < 250 %>
+      <% percent = (@points * 100) / 250 %>
       <% calc = 50 - @points %>
-    <% elsif @points > 50 && @points < 100 %>
-      <% percent = (@points * 100) / 100 %>
+    <% elsif @points >= 250 && @points < 500 %>
+      <% percent = (@points * 100) / 500 %>
       <% calc = 100 - @points %>
-    <% elsif @points > 100 && @points < 200 %>
-      <% percent = (@points * 100) / 200 %>
+    <% elsif @points >= 500 && @points < 1000 %>
+      <% percent = (@points * 100) / 100 %>
       <% calc = 200 - @points %>
-    <% elsif @points > 200 && @points < 400 %>
-      <% percent = (@points * 100) / 400 %>
-      <% calc = 400 - @points %>
-    <% elsif @points > 400 %>
+    <% elsif @points >= 1000 %>
       <% percent = 100 %>
       <% calc = 0 %>
     <% end %>
 
     <div class="progress-level">
-      <span class="green" style="width: <%= percent %>%;"><span>Faltam <%= calc %> pontos</span></span>
+      <span class="green" style="width: <%= percent %>%;"><span><%= calc %> pontos</span></span>
     </div>
   </div>
 </footer>
