@@ -55,14 +55,14 @@ pt-BR:
   datetime:
     distance_in_words:
       about_x_hours:
-        one: aproximadamente 1 hora
-        other: aproximadamente %{count} horas
+        one: há cerca de  1 hora
+        other: há cerca de %{count} horas
       about_x_months:
-        one: aproximadamente 1 mês
-        other: aproximadamente %{count} meses
+        one: há cerca de 1 mês
+        other: há cerca de %{count} meses
       about_x_years:
-        one: aproximadamente 1 ano
-        other: aproximadamente %{count} anos
+        one: há cerca de 1 ano
+        other: há cerca de %{count} anos
       almost_x_years:
         one: quase 1 ano
         other: quase %{count} anos
