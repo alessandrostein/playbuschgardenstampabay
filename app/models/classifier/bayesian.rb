@@ -30,6 +30,11 @@ class Classifier::Bayesian
     @bayesian.train_good "Claro, contem comigo"
     @bayesian.train_good "Vou levar meu amigo junto, todos vamos"
     @bayesian.train_good "Legal, vou chamar os amigos para ir junto"
+    @bayesian.train_good "Obrigado, sua ajuda será muito importante"
+    @bayesian.train_good "Muito legal, podem contar comigo"
+    @bayesian.train_good "Muito bom, podem contar comigo"
+    @bayesian.train_good "Interessante, vou ajudar também"
+    @bayesian.train_good "Legal demais"
 
     @bayesian.train_bad "Não acho válido esta ação, não contem comigo"
     @bayesian.train_bad "Ao realizar a ação, houve uma situação muito chata"

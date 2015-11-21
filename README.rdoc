@@ -19,12 +19,3 @@ To Do
 * Adicionar "Enviar" para enviar os comentários, o usuário pode enviar com o Enter sem querer
 * Responsividade
 * Login com Facebook
-
-Novas palavras para a análise de sentimento
-
-Good words
-
-Muito bom!
-Interessante!
-Legal demais!
-Obrigado!
