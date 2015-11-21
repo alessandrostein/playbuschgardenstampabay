@@ -7,10 +7,10 @@
     <div class="col-sm-3">
       <p>Realizada por</p>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-2">
       <p>Ação</p>
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-3">
     </div>
     <div class="col-sm-2">
       <p>Expira em</p>
@@ -22,12 +22,17 @@
   <% Action.actions_requiring_approval(current_user.tasks.select(:id)).each do |action| %>
     <div class="row box-table">
       <div class="col-sm-3">
-        <p><%= image_tag "avatar.png", class: "avatar-sm" %> <%= action.user.name %></p>
-      </div>
-      <div class="col-sm-3">
-        <p><%= action.task.try(:title) %></p>
+        <p>
+          <%= render 'panel/shared/avatar', user: action.user %>
+          <div class="player">
+            <%= action.user.name %>
+          </div>
+        </p>
       </div>
       <div class="col-sm-2">
+        <p><%= action.task.try(:title) %></p>
+      </div>
+      <div class="col-sm-3">
         <p><%= link_to 'Ver detalhes', task_path(action.task), class: "btn-sm btn-info" %></p>
       </div>
       <div class="col-sm-2">

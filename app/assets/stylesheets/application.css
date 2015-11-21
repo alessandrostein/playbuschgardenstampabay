@@ -245,6 +245,31 @@ footer .row ul li {
   font-size: 20px;
 }
 
+.avatar-name {
+  float: left;
+  width: 25px;
+  height: 25px;
+  border-radius: 43px;
+  background-color: #F2F0EA;
+  border: 2px solid #FFF;
+  overflow: hidden;
+}
+
+.avatar-name p {
+  text-align: center;
+  margin-top: 3px;
+  color: #6161C0 !important;
+  font-family: "Open Sans",Arial,sans-serif;
+  font-weight: bold;
+  font-size: 10px !important;
+}
+
+.player {
+  float: left;
+  margin-left: 5px;
+}
+
+
 .wins-rows {
   padding: 10px;
 }

@@ -7,10 +7,10 @@
     <div class="col-sm-2">
       <p>Situação</p>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-2">
       <p>Ação</p>
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-3">
     </div>
     <div class="col-sm-2">
       <p>Expira em</p>
@@ -25,17 +25,22 @@
       <div class="col-sm-2">
         <p><span class="lg-status status-waiting">Pendente</span></p>
       </div>
-      <div class="col-sm-3">
+      <div class="col-sm-2">
         <p><%= action.task.try(:title) %></p>
       </div>
-      <div class="col-sm-2">
+      <div class="col-sm-3">
         <p><%= link_to 'Ver detalhes', "#", class: "btn-sm btn-info" %></p>
       </div>
       <div class="col-sm-2">
         <p><%= distance_of_time_in_words(Date.today, action.task.try(:expires_on)) %></p>
       </div>
       <div class="col-sm-3">
-        <p><%= image_tag "avatar.png", class: "avatar-sm" %> <%= action.task.user.try(:name) %></p>
+        <p>
+          <%= render 'panel/shared/avatar', user: action.task.user %>
+          <div class="player">
+            <%= action.task.user.name %>
+          </div>
+        </p>
       </div>
     </div>
   <% end %>

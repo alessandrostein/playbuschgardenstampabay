@@ -1,0 +1,15 @@
+<%
+  avatarArray = user.name.split
+
+  if avatarArray.size > 1
+    avatar = avatarArray[0][0].upcase + avatarArray[avatarArray.size - 1][0].upcase
+  else
+    avatar = avatarArray[0][0].upcase + avatarArray[0][1].upcase
+  end
+%>
+
+<div class="avatar-name">
+    <p>
+      <%= avatar %>
+    </p>
+</div>
