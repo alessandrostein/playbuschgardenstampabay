@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation
 
+  validates :name, :presence => true
+
   has_merit
 
   # Include default devise modules. Others available are:

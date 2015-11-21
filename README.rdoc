@@ -10,7 +10,6 @@ To Do
 * Informar ao usuário mínimo de caracteres
 * Colocar a página Minha Conta no padrão do projeto
 * Página de Logar e Cadastrar incompletas, só funciona com os Modais.
-* Tornar o nome obrigatório
 * Permitir excluir e editar comentários
 * Permitir ver todos os comentários
 * Ajustar o height da página para não ativar o scroll
