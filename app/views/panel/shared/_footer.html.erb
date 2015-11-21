@@ -42,13 +42,13 @@
     <% @points = current_user.points %>
     <% if @points > 1 && @points < 250 %>
       <% percent = (@points * 100) / 250 %>
-      <% calc = 50 - @points %>
+      <% calc = 250 - @points %>
     <% elsif @points >= 250 && @points < 500 %>
       <% percent = (@points * 100) / 500 %>
-      <% calc = 100 - @points %>
+      <% calc = 500 - @points %>
     <% elsif @points >= 500 && @points < 1000 %>
-      <% percent = (@points * 100) / 100 %>
-      <% calc = 200 - @points %>
+      <% percent = (@points * 100) / 1000 %>
+      <% calc = 1000 - @points %>
     <% elsif @points >= 1000 %>
       <% percent = 100 %>
       <% calc = 0 %>
