@@ -1,10 +1,14 @@
 <%
-  avatarArray = user.name.split
-
-  if avatarArray.size > 1
-    avatar = avatarArray[0][0].upcase + avatarArray[avatarArray.size - 1][0].upcase
+  if user_name.blank?
+    avatarArray = "??"
   else
-    avatar = avatarArray[0][0].upcase + avatarArray[0][1].upcase
+    avatarArray = user_name.split
+
+    if avatarArray.size > 1
+      avatar = avatarArray[0][0].upcase + avatarArray[avatarArray.size - 1][0].upcase
+    else
+      avatar = avatarArray[0][0].upcase + avatarArray[0][1].upcase
+    end
   end
 %>
 

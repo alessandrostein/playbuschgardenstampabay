@@ -13,8 +13,8 @@
 
           <div class="row box-table">
             <div class="col-sm-9 table-header">
-              <p>                
-                <%= render 'panel/shared/avatar', user: post.user %>
+              <p>
+                <%= render 'panel/shared/avatar', user_name: post.user.name %>
                 <%= post.user.name %> compartilhou a ação
                 <strong>
                   <%= link_to "#{post.task.title}", task_path(post.task) %>

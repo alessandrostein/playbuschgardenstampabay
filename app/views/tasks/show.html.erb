@@ -32,7 +32,7 @@
           </div>
           <div class="col-sm-3">
             <p><%= image_tag "avatar.png", class: "avatar-box-waiting" %> <%= @task.user.name %></p>
-            <%= render 'panel/shared/avatar', user:  @task.user %>
+            <%= render 'panel/shared/avatar', user_name: @task.user.name %>
             <div class="player">
               <%=  @task.user.name %>
             </div>
