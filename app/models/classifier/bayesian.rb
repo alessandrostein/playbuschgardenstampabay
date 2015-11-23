@@ -35,10 +35,11 @@ class Classifier::Bayesian
     @bayesian.train_good "Muito bom, podem contar comigo"
     @bayesian.train_good "Interessante, vou ajudar também"
     @bayesian.train_good "Legal demais"
+    @bayesian.train_good "Obrigado"
 
     @bayesian.train_bad "Não acho válido esta ação, não contem comigo"
     @bayesian.train_bad "Ao realizar a ação, houve uma situação muito chata"
-    @bayesian.train_bad "Não ocorreu tudo certo como gostaríamos"
+    @bayesian.train_bad "Não ocorreu como gostaríamos"
     @bayesian.train_bad "Você está tentando enganar o sitema"
     @bayesian.train_bad "Você só esta interessando nos pontos desta ação"
     @bayesian.train_bad "Esta ação é repetida, por favor, exclua"
@@ -46,6 +47,9 @@ class Classifier::Bayesian
     @bayesian.train_bad "Não vou ajudar"
     @bayesian.train_bad "Não contem comigo"
     @bayesian.train_bad "Não vou ajudar de forma alguma"
+    @bayesian.train_bad "Comentário infeliz"
+    @bayesian.train_bad "Comentário ruim"
+    @bayesian.train_bad "A ação não existe mais"
   end
 
   def classify(text)

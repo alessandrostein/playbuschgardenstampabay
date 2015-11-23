@@ -93,11 +93,8 @@
                 <div class="comments-container">
                   <div class="row box-comments">
                     <div class="">
-                        <div class="col-sm-9 comments-header">
-                          <p>
-                            <%= image_tag "avatar.png", class: "avatar-sm" %>
-                            <%= comment.user.name %>
-                          </p>
+                        <div class="col-sm-9 comments-header box-table">
+                          <%= render 'panel/shared/avatar', user_name: comment.user.name %>
                         </div>
                         <div class="col-sm-3 time comments-header">
                           <p>
@@ -110,15 +107,15 @@
 
                   <div class="row box-comments">
                     <div class="">
-                      <div class="col-sm-9 comments-body">
-
-                        <% if comment.good? %>
-                          <i class="fa fa-smile-o" style="color: green;"></i>
-                        <% else %>
-                          <i class="fa fa-frown-o" style="color: blue"></i>
-                        <% end %>
-
+                      <div class="col-sm-11 comments-body">
                         <%= comment.text %>
+                      </div>
+                      <div class="col-sm-1 comments-sentiment">
+                        <% if comment.good? %>
+                          <i class="fa fa-smile-o" style="color: green;" title="Comentário positivo"></i>
+                        <% else %>
+                          <i class="fa fa-frown-o" style="color: blue" title="Comentário negativo"></i>
+                        <% end %>
                       </div>
                     </div>
                   </div>
@@ -138,7 +135,7 @@
 
                   <input name="comment[post_id]" type="hidden" value="<%= post.id %>">
                   <input name="comment[user_id]" type="hidden" value="<%= current_user.id %>">
-                  <input type="text" name="comment[text]" placeholder="Deixe o seu comentário"
+                  <input type="text" name="comment[text]" placeholder="Deixe o seu comentário (Aperte Enter para enviar)"
                     class="in-comment"></input>
                 <% end %>
 
@@ -178,7 +175,7 @@
                   </div>
                 </li>
                 <li>
-                  <p class="statistic-info">publicações feita por mim</p>
+                  <p class="statistic-info">publicações feitas por você</p>
                 </li>
               </ul>
             </li>
@@ -190,7 +187,7 @@
                   </div>
                 </li>
                 <li>
-                  <p class="statistic-info">curtidas feita por mim</p>
+                  <p class="statistic-info">curtidas feitas por você</p>
                 </li>
               </ul>
             </li>
@@ -202,7 +199,7 @@
                   </div>
                 </li>
                 <li>
-                  <p class="statistic-info">comentários feitos por mim</p>
+                  <p class="statistic-info">comentários feitos por você</p>
                 </li>
               </ul>
             </li>

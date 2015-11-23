@@ -655,6 +655,10 @@ footer .row ul li {
   font-size: 12px;
 }
 
+.comments-sentiment i {
+  font-size: 20px;
+}
+
 .box-table p{
   line-height: 2.0;
   font-family: 'Open Sans', sans-serif;
