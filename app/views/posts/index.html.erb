@@ -15,7 +15,7 @@
             <div class="col-sm-9 table-header">
               <p>
                 <%= render 'panel/shared/avatar', user_name: post.user.name %>
-                <%= post.user.name %> compartilhou a ação
+                 <span style="margin-left: 5px;">compartilhou a ação </span>
                 <strong>
                   <%= link_to "#{post.task.title}", task_path(post.task) %>
                 </strong>

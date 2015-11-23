@@ -247,21 +247,22 @@ footer .row ul li {
 
 .avatar-name {
   float: left;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   border-radius: 43px;
   background-color: #F2F0EA;
-  border: 2px solid #FFF;
+  border: 2px solid #6161C0;
   overflow: hidden;
 }
 
 .avatar-name p {
   text-align: center;
-  margin-top: 3px;
+  margin-top: 0px;
+  margin-left: 1px;
   color: #6161C0 !important;
   font-family: "Open Sans",Arial,sans-serif;
-  font-weight: bold;
-  font-size: 10px !important;
+  font-weight: bold !important;
+  font-size: 12px !important;
 }
 
 .player {
@@ -269,6 +270,10 @@ footer .row ul li {
   margin-left: 5px;
 }
 
+.player p {
+  font-family: "Open Sans",Arial,sans-serif;
+  font-size: 12px !important;
+}
 
 .wins-rows {
   padding: 10px;
@@ -392,7 +397,7 @@ footer .row ul li {
 
 .task-actions {
   text-align: center;
-  padding: 0 20px 20px 20px;
+  padding: 0 10px 20px 10px;
 }
 
 .task-statistics, .wins {
@@ -427,7 +432,7 @@ footer .row ul li {
 
 .user-position {
   background: rgba(0, 128, 0, 0.41) none repeat scroll 0% 0%;
-  height: 30px;
+  height: 35px;
   color: #FFF;
   padding-top: 3px;
 }
@@ -640,5 +645,11 @@ footer .row ul li {
 }
 
 .comments-header p, .comments-body {
+  font-size: 12px;
+}
+
+.box-table p{
+  line-height: 2.0;
+  font-family: 'Open Sans', sans-serif;
   font-size: 12px;
 }

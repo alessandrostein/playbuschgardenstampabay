@@ -30,12 +30,8 @@
           <div class="col-sm-3">
             <p><%= @task.title %></p>
           </div>
-          <div class="col-sm-3">
-            <p><%= image_tag "avatar.png", class: "avatar-box-waiting" %> <%= @task.user.name %></p>
+          <div class="col-sm-3">            
             <%= render 'panel/shared/avatar', user_name: @task.user.name %>
-            <div class="player">
-              <%=  @task.user.name %>
-            </div>
           </div>
           <div class="col-sm-2">
             <p><%= time_ago_in_words(@task.created_at) %> atrás</p>

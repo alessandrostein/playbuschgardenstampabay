@@ -10,10 +10,10 @@
         <div class="col-sm-2">
           <p>Posição</p>
         </div>
-        <div class="col-sm-7">
+        <div class="col-sm-8">
           <p>Nome</p>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-2">
           <p>Pontos</p>
         </div>
       </div>
@@ -23,13 +23,10 @@
           <div class="col-sm-2 <%= 'user-position' if current_user.id.to_s == score['user_id'] %>">
             <p><%= index + 1 %></p>
           </div>
-          <div class="col-sm-7 <%= 'user-position' if current_user.id.to_s == score['user_id'] %>">
+          <div class="col-sm-8 <%= 'user-position' if current_user.id.to_s == score['user_id'] %>">
             <%= render 'panel/shared/avatar', user_name: User.find(score["user_id"]).name %>
-            <div class="player">
-              <%= User.find(score["user_id"]).name %>
-            </div>
           </div>
-          <div class="col-sm-3 <%= 'user-position' if current_user.id.to_s == score['user_id'] %>">
+          <div class="col-sm-2 <%= 'user-position' if current_user.id.to_s == score['user_id'] %>">
             <p><%= score["sum_points"] %></p>
           </div>
         </div>

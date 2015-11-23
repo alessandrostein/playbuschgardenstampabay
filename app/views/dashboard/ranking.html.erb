@@ -25,10 +25,7 @@
                 <p><%= index + 1 %></p>
               </div>
               <div class="col-sm-7 <%= 'user-position' if current_user.id.to_s == score['user_id'] %>">
-                <%= render 'panel/shared/avatar', user_name: User.find(score["user_id"]).name %>
-                <div class="player">
-                  <%= User.find(score["user_id"]).name %>
-                </div>
+                <%= render 'panel/shared/avatar', user_name: User.find(score["user_id"]).name %>                
               </div>
               <div class="col-sm-3 <%= 'user-position' if current_user.id.to_s == score['user_id'] %>">
                 <p><%= score["sum_points"] %></p>
