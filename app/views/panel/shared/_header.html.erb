@@ -1,10 +1,26 @@
+<%
+  if current_user.name.blank?
+    avatar = "??"
+  else
+    avatarArray = current_user.name.split
+
+    if avatarArray.size > 1
+      avatar = avatarArray[0][0].upcase + avatarArray[avatarArray.size - 1][0].upcase
+    else
+      avatar = avatarArray[0][0].upcase + avatarArray[0][1].upcase
+    end
+  end
+%>
+
 <header>
   <div class="row">
     <div class="menu-left">
       <ul>
         <li>
-          <div class="avatar">
-            <%= image_tag "avatar.png", class: "img-responsive avatar-lg" %>
+          <div class="avatar avatar-name avatar-lg">
+            <p >
+              <%= avatar %>
+            </p>
           </div>
         </li>
         <li class="menu">
