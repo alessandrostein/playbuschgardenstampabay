@@ -23,63 +23,63 @@ module Merit
     def initialize
       # Badges for social
       grant_on 'tasks#share', badge: 'social_1', to: @task do |task|
-        score_social_points_is_true?(task.user, 100)
+        task.user.present? && score_social_points(task.user) >= 100
       end
 
       grant_on 'comments#create', badge: 'social_1', to: @comment do |comment|
-        score_social_points_is_true?(comment.user, 100)
+        comment.user.present? && score_social_points(comment.user) >= 100
       end
 
       grant_on 'posts#like', badge: 'social_1', to: @post do |post|
-        score_social_points_is_true?(post.user, 100)
+        post.user.present? && score_social_points(post.user) >= 100
       end
 
       grant_on 'tasks#share', badge: 'social_2', to: @task do |task|
-        score_social_points_is_true?(task.user, 200)
+        score_social_points(task.user) >= 200
       end
 
       grant_on 'comments#create', badge: 'social_2', to: @comment do |comment|
-        score_social_points_is_true?(comment.user, 200)
+        score_social_points(comment.user) >=  200
       end
 
       grant_on 'posts#like', badge: 'social_2', to: @post do |post|
-        score_social_points_is_true?(post.user, 200)
+        score_social_points(post.user) >= 200
       end
 
       grant_on 'tasks#share', badge: 'social_3', to: @task do |task|
-        score_social_points_is_true?(task.user, 300)
+        score_social_points(task.user) >= 300
       end
 
       grant_on 'comments#create', badge: 'social_3', to: @comment do |comment|
-        score_social_points_is_true?(comment.user, 300)
+        score_social_points(comment.user) >= 300
       end
 
       grant_on 'posts#like', badge: 'social_3', to: @post do |post|
-        score_social_points_is_true?(post.user, 300)
+        score_social_points(post.user) >= 300
       end
 
       grant_on 'tasks#share', badge: 'social_4', to: @task do |task|
-        score_social_points_is_true?(task.user, 400)
+        score_social_points(task.user) >= 400
       end
 
       grant_on 'comments#create', badge: 'social_4', to: @comment do |comment|
-        score_social_points_is_true?(comment.user, 400)
+        score_social_points(comment.user) >= 400
       end
 
       grant_on 'posts#like', badge: 'social_4', to: @post do |post|
-        score_social_points_is_true?(post.user, 400)
+        score_social_points(post.user) >= 400
       end
 
       grant_on 'tasks#share', badge: 'social_5', to: @task do |task|
-        score_social_points_is_true?(task.user, 500)
+        score_social_points(task.user) >= 500
       end
 
       grant_on 'comments#create', badge: 'social_5', to: @comment do |comment|
-        score_social_points_is_true?(comment.user, 500)
+        score_social_points(comment.user) >= 500
       end
 
       grant_on 'posts#like', badge: 'social_5', to: @post do |post|
-        score_social_points_is_true?(post.user, 500)
+        score_social_points(post.user) >= 500
       end
 
       # Badges for volunter
@@ -124,15 +124,12 @@ module Merit
       end
     end
 
-    def score_social_points_is_true?(user, num_points)
-      user.score_points.where("category in ('pontos por curtir uma publicação',
-        'pontos por comentar uma publicação', 'pontos por compartilhar uma publicação')")
-        .sum(:num_points) >= num_points
+    def score_social_points(user)
+      user.score_points.where("category in ('pontos por curtir uma publicação', 'pontos por comentar uma publicação', 'pontos por compartilhar uma publicação')").sum(:num_points)
     end
 
-    def score_volunter_points_is_true?(user, num_points)
-      user.score_points.where("category in ('pontos por participar de uma ação',
-        'pontos por finalizar uma ação')").sum(:num_points) >= num_points
+    def score_volunter_points_is_true?(user, num_points_check)
+      user.score_points.where("category in ('pontos por participar de uma ação','pontos por finalizar uma ação')").sum(:num_points) >= num_points_check
     end
   end
 end
