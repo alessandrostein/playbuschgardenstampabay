@@ -1,39 +1,46 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
+  <div class="dash">
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="box task-form">
+          <div class="title">
+            <h1><i class="fa fa-heart"></i> Dados da sua conta de usuário </h1>
+          </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+          <label>E-mail informado?</label>
+          <%= f.email_field :email, autofocus: true %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+          <label>Informe a nova senha</label>
+          <%= f.password_field :password, autocomplete: "off" %>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+          <label>Confirme sua nova senha</label>
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+          <label>Informe sua senha atual</label>
+          <%= f.password_field :current_password, autocomplete: "off" %>
+        </div>
+      </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
+      <div class="col-sm-4">
+        <div class="box">
+          <div class="title">
+            <h1><i class="fa fa-wrench"></i> Operações</h1>
+          </div>
+          <div class="task-actions">
+            <%= f.submit 'Salvar atualizações', class: "btn-md btn-create" %>
+          </div>
+        </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
+        <div class="box">
+          <div class="title">
+            <h1><i class="fa fa-wrench"></i> Remover sua conta?</h1>
+          </div>
+          <div class="task-actions">
+            <%= button_to "Excluir minha conta", registration_path(resource_name), data: { confirm: "Você tem certeza?" }, method: :delete, class: "btn-md btn-remove" %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 <% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
