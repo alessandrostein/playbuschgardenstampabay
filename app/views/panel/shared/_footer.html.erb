@@ -39,7 +39,12 @@
       </ul>
     </div>
 
-    <% @points = current_user.points %>
+    <%
+      @points = current_user.points
+      percent = 0
+      calc = 250
+    %>
+
     <% if @points > 1 && @points < 250 %>
       <% percent = (@points * 100) / 250 %>
       <% calc = 250 - @points %>
