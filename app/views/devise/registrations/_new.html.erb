@@ -21,9 +21,7 @@
           </div>
 
           <div class="field">
-            <% if @minimum_password_length %>
-            <em>(Sua senha deve ter <%= @minimum_password_length %> caracteres no mínimo)</em>
-            <% end %>
+            <em>(Sua senha deve ter 8 caracteres no mínimo)</em>
             <%= f.password_field :password, autocomplete: "off", title: "Informe sua senha", placeholder: "Digite sua senha" %>
           </div>
 
