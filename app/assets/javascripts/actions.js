@@ -23,11 +23,11 @@ $(function () {
 
     swal({
       title: "Oba! Parabéns por fazer a diferença!",
-      text: "Você tem certeza que conclui esta ação? Iremos informar o responsável por ela para validar a sua participação ok?",
+      text: "Você tem certeza que finalizou esta ação? Iremos informar o responsável para validar a sua participação ok?",
       type: "info",
       showCancelButton: true,
-      confirmButtonColor: "#DD6B55",
-      confirmButtonText: "Sim, eu conclui esta ação!",
+      confirmButtonColor: "#8CD4F5",
+      confirmButtonText: "Sim, eu finalizei esta ação!",
       cancelButtonText: "Cancelar",
       closeOnConfirm: false
     },
@@ -140,7 +140,7 @@ $(function () {
   $(document).on('ajax:success', '.btn-like', function(e, data, status, xhr){
     Turbolinks.visit('/posts');
   });
-  
+
   $(document).on('ajax:success', '.btn-unlike', function(e, data, status, xhr){
     Turbolinks.visit('/posts');
   });
