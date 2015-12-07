@@ -141,3 +141,22 @@ body.layout-home {
   color: #FFF;
   text-decoration: none;
 }
+
+#error_explanation {
+  color: #A94442;
+  background-color: #F2DEDE;
+  border-color: #EBCCD1;
+  border-radius: 7px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+#error_explanation h2 {
+  font-family: "Abel" !important;
+  font-size: 16px;
+}
+
+ #error_explanation ul {
+   font-family: "Abel" !important;
+   font-size: 14px;
+}

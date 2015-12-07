@@ -1,0 +1,39 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-body">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+
+        <h1>Olá, seja bem vindo(a), por favor, informe alguns dados</h1>
+
+        <!--"Olá, visitante! Seja bem-vindo!
+            Para entrar, por favor preencha os dados abaixo:" sugestão: Rubens -->
+        <div class="field">
+          <%= f.text_field :name, title: "Informe seu nome", placeholder: "Informe seu nome" %>
+        </div>
+
+        <div class="field">
+          <%= f.email_field :email, autocomplete: true, title: "Informe seu email", placeholder: "Digite seu e-mail" %>
+        </div>
+
+        <div class="field">
+          <% if @minimum_password_length %>
+          <em>(Sua senha deve ter <%= @minimum_password_length %> caracteres no mínimo)</em>
+          <% end %>
+          <%= f.password_field :password, autocomplete: "off", title: "Informe sua senha", placeholder: "Digite sua senha" %>
+        </div>
+
+        <!-- Informar ao usuário o mínimo de 8 caracteres  -->
+        <!--  Sugestão Lucas, remover confirmar senha -->
+
+        <div class="actions">
+          <%= f.submit "Pronto, vamos começar!" %>
+        </div>
+
+        <div class="has-account">
+          <p>Ja possui uma conta? <a href="#" class="btn-has-account" data-toggle="modal" data-target="#sign-in">Acessar minha conta</a></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
