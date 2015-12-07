@@ -1,0 +1,28 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-body">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+
+        <h1>Bem vindo(a) novamente, informe seus dados para acesso</h1>
+
+        <div class="field">
+          <%= f.email_field :email, autocomplete: true, title: "Informe seu email", placeholder: "Digite seu e-mail" %>
+        </div>
+
+        <div class="field">
+          <%= f.password_field :password, autocomplete: "off", title: "Informe sua senha", placeholder: "Digite sua senha" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Pronto, entrar!" %>
+        </div>
+
+        <div class="has-account">
+          <p>Esqueceu a sua senha? <a href="#">Recuperar minha conta</a></p>
+          <p>Não possui uma conta? <a href="#" class="btn-do-not-account" data-toggle="modal" data-target="#sign-up">Criar uma conta</a></p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
