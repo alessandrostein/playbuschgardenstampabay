@@ -16,7 +16,18 @@
  */
 
 body.layout-home {
+  // background-image: image-url("background.jpg");
+}
+
+#main {
+  min-height: 640px;
   background-image: image-url("background.jpg");
+}
+
+#about {
+  min-height: 640px;
+  background-image: image-url("about.jpg");
+  background-position: 0;  
 }
 
 .header {
