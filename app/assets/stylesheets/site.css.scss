@@ -25,9 +25,18 @@ body.layout-home {
 }
 
 #about {
-  min-height: 640px;
+  min-height: 740px;
   background-image: image-url("about.jpg");
-  background-position: 0;  
+  background-position: 0;
+}
+
+#how-work {
+  min-height: 100%;
+  background-color: #000;
+}
+
+.container-video {
+  padding: 100px;
 }
 
 .header {
