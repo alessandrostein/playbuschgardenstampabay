@@ -1,31 +1,14 @@
-<section id="main">
-  <div class="container">
-    <div class="site-title">
-      <h1>Todos juntos por um mundo melhor!</h1>
-      <h3>Encontre pessoas e organizações que precisam de ajuda mais próximo de você</h3>
-    </div>
-
-    <div class="site-actions">
-      <% unless user_signed_in? %>
-        <a href="#" class="btn-get-started" data-toggle="modal" data-target="#sign-up">Começar agora!</a>
-      <% else %>
-        <%= link_to "Oba! Acessar minha conta!", dashboard_path, class: "btn-get-started" %>
-      <% end %>
-    </div>
+<div class="container">
+  <div class="site-title">
+    <h1>Todos juntos por um mundo melhor!</h1>
+    <h3>Encontre pessoas e organizações que precisam de ajuda mais próximo de você</h3>
   </div>
-</section>
 
-<section id="about">
-  <div class="container">
-    <div class="site-title">
-      <h1>Você pode fazer a diferença</h1>
-      <h3>Conectar ações sociais e pessoas que querem ser os agentes de mudanças no mundo. Este é o principal objetivo deste projeto, criando experiências incríveis e conectando pessoas que acreditam em um mundo melhor.</h3>
-    </div>
+  <div class="site-actions">
+    <% unless user_signed_in? %>
+      <a href="#sign-up-modal" class="btn-get-started" id="sign-up">Começar agora!</a>
+    <% else %>
+      <%= link_to "Oba! Acessar minha conta!", dashboard_path, class: "btn-get-started" %>
+    <% end %>
   </div>
-</section>
-
-<section id="how-work">
-  <div class="container container-video">
-    <iframe width="752" height="498" src="http://www.wideo.co/embed/10398141450225060473?height=288&width=512" frameborder="0"></iframe>
-  </div>
-</section>
+</div>

@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Meu melhor mundo</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'internal', media: 'all', 'data-turbolinks-track' => false %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
@@ -20,6 +20,9 @@
 
 </head>
 <body>
+  <div class="beta">
+    <p>Olá <%= current_user.name %>, estamos em testes, por favor, qualquer erro ou sugestão, nos avise <a href="#"> clicando aqui<a></p>
+  </div>
 
   <%= render 'panel/shared/header' %>
 

@@ -2,9 +2,10 @@
 <html>
 <head>
   <title>Meu melhor mundo</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'site', media: 'all', 'data-turbolinks-track' => false %>
+  <%= javascript_include_tag 'site', 'data-turbolinks-track' => false %>
   <%= csrf_meta_tags %>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
 
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -18,13 +19,18 @@
 </script>
 
 </head>
-<body class="layout-home">
+<body>
+  <span class="beta">Versão Beta</span>
+  
   <%= render "site/header" %>
 
   <%= yield %>
 
-  <%= render "site/footer" %>
   <%= render "devise/registrations/new" %>
   <%= render "devise/sessions/new" %>
+
+  <%= render "site/midia" %>
+  <%= render "site/footer" %>
+
 </body>
 </html>

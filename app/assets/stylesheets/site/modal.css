@@ -1,0 +1,81 @@
+.modal-dialog {
+  max-width: 470px !important;
+}
+
+.modal-header {
+  border-bottom: 0px !important;
+}
+
+#new_user {
+  text-align: center;
+}
+
+#new_user input {
+  /*font-family: "Abel";*/
+  font-weight: normal;
+  font-size: 20px;
+  text-align: center;
+  padding: 5px 15px;
+  margin-bottom: 15px;
+.}
+
+#new_user .actions input {
+  color: #FFF;
+  background-color: rgba(0, 128, 0, 0.41);
+  border: medium none;
+  z-index: 1;
+  border-radius: 5px;
+  opacity: 0.8;
+  padding: 10px 30px;
+  font-weight: bold;
+}
+
+#new_user .actions input:hover {
+  background: rgba(0, 128, 0, 0.51);
+}
+
+#new_user .has-account {
+  font-weight: lighter;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* Animate Modal */
+
+.modal-content {
+  padding: 50px;
+  font-family: "Open Sans",Arial,sans-serif;
+}
+
+.btn-close-modal {
+  margin-top: 15px;
+  width:100%;
+  text-align: center;
+  cursor:pointer;
+  color:#fff;
+}
+
+.modal-content h1 {
+  font-weight: bold;
+  font-size: 26px;
+  text-align: center;
+  line-height: 1.3;
+  margin-top: 0px !important;
+  margin-bottom: 15px !important;
+  color: #878484;
+}
+
+/* Animate Modal Sign */
+
+.sign-container {
+  width: 400px;
+  background-color: #FFF;
+  padding: 20px 20px;
+  border-radius: 12px;
+  margin: 0px auto;
+  border: 2px solid rgba(0, 128, 0, 0.62);
+}
+
+.sign-container input {
+  width: 350px;
+}

@@ -10,12 +10,12 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require dashboard
- *= require tasks
- *= require posts
- *= require progressbar
- *= require sweetalert
- *= require_tree .
+ *= require internal/dashboard
+ *= require internal/tasks
+ *= require internal/posts
+ *= require internal/progressbar
+ *= require lib/sweetalert
+ *= require twitter-bootstrap-static/bootstrap
  *= require_self
  */
 
@@ -664,4 +664,17 @@ footer .row ul li {
   font-family: 'Open Sans', sans-serif;
   font-size: 12px;
   margin-left: 1px;
+}
+
+.beta {
+  width: 100%;
+  height: 45px;
+  background-color: #000;
+}
+
+.beta p {
+  padding: 10px;
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  color: #FFF;
 }
